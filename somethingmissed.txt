@@ -1,0 +1,13 @@
+./checkpoints/label2city/latest_net_G.pth
+./checkpoints/label2city/latest_net_G1.pth
+./checkpoints/label2city/latest_net_G2.pth
+./checkpoints/label2city/latest_net_U.pth
+./checkpoints/label2city/opt.txt
+./lip_final.pth
+./pose/pose_iter_440000.caffemodel
+./U-2-Net/saved_models/u2net/u2net.pth
+./U-2-Net/saved_models/u2netp/u2netp.pth
+
+
+
+용량이 너무 커서 올리지 못했음 로컬과 구글 드라이브에 보관중
