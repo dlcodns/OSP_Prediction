@@ -15,19 +15,25 @@ def getModel():
 def getData():
     return {'hello':1234}
 
-# @app.post("/files/")
-# async def create_file(file: Annotated[bytes, File()]):
-#     return {"file_size": len(file)}
-
-
-# @app.post("/uploadfile/")
-# async def create_upload_file(file: UploadFile):
-#     return {"filename": file.filename}
+# input data 넣을 디렉토리 만들어주기
+@app.get("/createfolder")
+async def create_folders():
+    input_folder_path = os.path.join(os.getcwd(), 'input')
+    cloth_folder_path = os.path.join(input_folder_path, 'cloth')
+    image_folder_path = os.path.join(input_folder_path, 'image')
+    
+    if not os.path.exists(input_folder_path):
+        os.mkdir(input_folder_path)
+        os.mkdir(cloth_folder_path)
+        os.mkdir(image_folder_path)
+        return {"message": "Folders created successfully!"}
+    else:
+        return {"message": "Folder already exists!"}
 
 @app.post("/photo")
 async def upload_photo(file: UploadFile):
-    # 이미지를 저장할 경로 (나중에 디비 경로 적어주기)
-    UPLOAD_DIR = "./"  
+
+    UPLOAD_DIR = "./input/cloth"  
     
     content = await file.read()
     # 저장할 이미지 이름을 시간으로 변경
