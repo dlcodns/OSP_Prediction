@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
-import 'imagepick.dart';
+import 'clothimagepick.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(ImagePickingPage());
+                  Get.to(ClothImagePickingPage());
                 },
                 child: Container(
                   width: 100,

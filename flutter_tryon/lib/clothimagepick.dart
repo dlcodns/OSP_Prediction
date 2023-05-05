@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tryon/modelimagepick.dart';
 import 'dart:io';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
 import 'api.dart';
 
-class ImagePickingPage extends StatefulWidget {
-  ImagePickingPage({super.key});
+class ClothImagePickingPage extends StatefulWidget {
+  ClothImagePickingPage({super.key});
 
   @override
-  State<ImagePickingPage> createState() => _ImagePickingPageState();
+  State<ClothImagePickingPage> createState() => _ClothImagePickingPageState();
 }
 
-class _ImagePickingPageState extends State<ImagePickingPage> {
+class _ClothImagePickingPageState extends State<ClothImagePickingPage> {
   XFile? pickedImage;
 
   final ImagePicker _picker = ImagePicker();
@@ -91,6 +93,7 @@ class _ImagePickingPageState extends State<ImagePickingPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //옷 넣는 곳
           Container(
             width: 400,
             height: 400,
@@ -101,6 +104,7 @@ class _ImagePickingPageState extends State<ImagePickingPage> {
             onTap: () {
               if (pickedImage != null) {
                 uploadImageToServer(pickedImage!);
+                Get.to(ModelImagePickingPage());
               } else {
                 Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
               }
@@ -109,7 +113,7 @@ class _ImagePickingPageState extends State<ImagePickingPage> {
               width: 100,
               height: 100,
               color: Colors.red,
-              child: Text('이미지 확정'),
+              child: Text('이미지 확정 후 다음 페이지로'),
             ),
           ),
         ],
