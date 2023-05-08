@@ -1,6 +1,6 @@
 # flutter_tryon
 
-A new Flutter project.
+가상피팅 api용 데모 어플
 
 ## Getting Started
 
