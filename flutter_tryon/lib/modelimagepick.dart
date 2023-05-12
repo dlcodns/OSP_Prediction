@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tryon/getimage.dart';
 import 'dart:io';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
     var uri = Uri.parse(API.modelupload);
     try {
       var request = http.MultipartRequest("POST", uri);
-      var pic = await http.MultipartFile.fromPath("imageurl", pickedImage.path);
+      var pic = await http.MultipartFile.fromPath("file", pickedImage.path);
 
       request.files.add(pic);
 
@@ -105,7 +106,7 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
                 uploadImageToServer(pickedImage!);
                 //업로드 후 1초 뒤에 추론 시작
                 //이미지 반환 페이지로 이동
-                //Get.to(()=> ());
+                Get.to(() => GetImagePage());
               } else {
                 Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
               }
