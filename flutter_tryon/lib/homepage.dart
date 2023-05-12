@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
 import 'clothimagepick.dart';
@@ -22,7 +20,7 @@ class HomePage extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(ClothImagePickingPage());
+                  Get.to(() => ClothImagePickingPage());
                 },
                 child: Container(
                   width: 100,

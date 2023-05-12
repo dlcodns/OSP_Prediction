@@ -104,7 +104,7 @@ class _ClothImagePickingPageState extends State<ClothImagePickingPage> {
             onTap: () {
               if (pickedImage != null) {
                 uploadImageToServer(pickedImage!);
-                Get.to(ModelImagePickingPage());
+                Get.to(() => ModelImagePickingPage());
               } else {
                 Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
               }
