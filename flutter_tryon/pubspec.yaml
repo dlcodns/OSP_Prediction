@@ -39,6 +39,7 @@ dependencies:
   fluttertoast: ^8.2.1
   http: ^0.13.6
   get: ^4.6.5
+  file_picker: ^5.3.0
 
 
 dev_dependencies:

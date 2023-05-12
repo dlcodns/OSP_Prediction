@@ -21,10 +21,10 @@ class _ClothImagePickingPageState extends State<ClothImagePickingPage> {
   final ImagePicker _picker = ImagePicker();
 
   Future<void> uploadImageToServer(XFile pickedImage) async {
-    var uri = Uri.parse(API.imageupload);
+    var uri = Uri.parse(API.clothupload);
     try {
       var request = http.MultipartRequest("POST", uri);
-      var pic = await http.MultipartFile.fromPath("imageurl", pickedImage.path);
+      var pic = await http.MultipartFile.fromPath("file", pickedImage.path);
 
       request.files.add(pic);
 

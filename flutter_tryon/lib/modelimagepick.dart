@@ -20,7 +20,7 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
   final ImagePicker _picker = ImagePicker();
 
   Future<void> uploadImageToServer(XFile pickedImage) async {
-    var uri = Uri.parse(API.imageupload);
+    var uri = Uri.parse(API.modelupload);
     try {
       var request = http.MultipartRequest("POST", uri);
       var pic = await http.MultipartFile.fromPath("imageurl", pickedImage.path);
