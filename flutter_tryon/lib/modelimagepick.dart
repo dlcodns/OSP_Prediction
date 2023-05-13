@@ -106,7 +106,7 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
                 uploadImageToServer(pickedImage!);
                 //업로드 후 1초 뒤에 추론 시작
                 //이미지 반환 페이지로 이동
-                Get.to(() => GetImagePage());
+                //Get.to(() => GetImagePage());
               } else {
                 Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
               }
@@ -116,6 +116,24 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
               height: 100,
               color: Colors.red,
               child: Text('이미지 확정 후 다음 페이지로'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              if (pickedImage != null) {
+                //uploadImageToServer(pickedImage!);
+                //업로드 후 1초 뒤에 추론 시작
+                //이미지 반환 페이지로 이동
+                Get.to(() => GetImagePage());
+              } else {
+                Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
+              }
+            },
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
+              child: Text('다음 페이지로'),
             ),
           ),
         ],

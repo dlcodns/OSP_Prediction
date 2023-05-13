@@ -1,5 +1,5 @@
 class API {
-  static const hostConnect = "https://0495-34-136-135-6.ngrok.io";
+  static const hostConnect = "https://2965-34-126-90-140.ngrok.io";
   static const hostConnectUser = "$hostConnect/user";
 
   //static const signup = "$hostConnect/user/signup.php";
