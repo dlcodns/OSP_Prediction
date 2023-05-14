@@ -124,7 +124,8 @@ class _ModelImagePickingPageState extends State<ModelImagePickingPage> {
                 //uploadImageToServer(pickedImage!);
                 //업로드 후 1초 뒤에 추론 시작
                 //이미지 반환 페이지로 이동
-                Get.to(() => GetImagePage());
+                //Get.to(() => GetImagePage());
+                Get.to(() => ImageFromServer());
               } else {
                 Fluttertoast.showToast(msg: '이미지를 선택해주세요!');
               }

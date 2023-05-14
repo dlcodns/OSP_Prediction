@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'api.dart';
 
+/*
 class GetImagePage extends StatefulWidget {
   const GetImagePage({super.key});
 
@@ -47,9 +48,54 @@ class _GetImagePageState extends State<GetImagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: _image ?? CircularProgressIndicator(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 400,
+            height: 400,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+              ),
+            ),
+            child: Center(
+              child: _image ?? CircularProgressIndicator(),
+            ),
+          ),
+        ],
       ),
+    );
+  }
+}
+*/
+
+class ImageFromServer extends StatefulWidget {
+  @override
+  _ImageFromServerState createState() => _ImageFromServerState();
+}
+
+class _ImageFromServerState extends State<ImageFromServer> {
+  var uri = Uri.parse(API.predict);
+  Future<Uint8List> _getImageBytes() async {
+    final response = await http.get(uri);
+    return response.bodyBytes;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _getImageBytes(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done &&
+            snapshot.hasData) {
+          return Image.memory(snapshot.data!);
+        } else if (snapshot.hasError) {
+          return Text('Error loading image: ${snapshot.error}');
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
     );
   }
 }
