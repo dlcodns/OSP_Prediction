@@ -78,8 +78,15 @@ class ImageFromServer extends StatefulWidget {
 class _ImageFromServerState extends State<ImageFromServer> {
   var uri = Uri.parse(API.predict);
   Future<Uint8List> _getImageBytes() async {
-    final response = await http.get(uri);
-    return response.bodyBytes;
+    try {
+      final response = await http.get(uri);
+      print('여기는 지나감');
+      return response.bodyBytes;
+    } catch (e) {
+      print('에러임');
+      print('Error fetching image: $e');
+      rethrow;
+    }
   }
 
   @override
@@ -89,11 +96,19 @@ class _ImageFromServerState extends State<ImageFromServer> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
+          print('이미지 도착');
           return Image.memory(snapshot.data!);
         } else if (snapshot.hasError) {
+          print('이미지 도착 실패');
+          print('Error loading image: ${snapshot.error}');
           return Text('Error loading image: ${snapshot.error}');
         } else {
-          return CircularProgressIndicator();
+          return Center(
+            child: Container(
+              color: Colors.white,
+              child: CircularProgressIndicator(),
+            ),
+          );
         }
       },
     );
