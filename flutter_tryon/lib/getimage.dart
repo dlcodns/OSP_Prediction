@@ -100,6 +100,7 @@ class _ImageFromServerState extends State<ImageFromServer> {
     return imageBytes;
   }
 
+/*
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -128,6 +129,41 @@ class _ImageFromServerState extends State<ImageFromServer> {
               child: CircularProgressIndicator(),
             ),
           );
+        }
+      },
+    );
+  }
+*/
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _getImageBytes(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done &&
+            snapshot.hasData) {
+          return FutureBuilder(
+            future: _getImageBytesFromJson(snapshot.data),
+            builder: (context, jsonSnapshot) {
+              if (jsonSnapshot.connectionState == ConnectionState.done &&
+                  jsonSnapshot.hasData) {
+                return Container(
+                  child: Image.memory(jsonSnapshot.data as Uint8List),
+                );
+              } else if (jsonSnapshot.hasError) {
+                print('Error decoding JSON image data: ${jsonSnapshot.error}');
+                return Text(
+                    'Error decoding JSON image data: ${jsonSnapshot.error}');
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          );
+        } else if (snapshot.hasError) {
+          print('Error fetching image data: ${snapshot.error}');
+          return Text('Error fetching image data: ${snapshot.error}');
+        } else {
+          return Center(child: CircularProgressIndicator());
         }
       },
     );
