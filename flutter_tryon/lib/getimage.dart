@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -97,7 +98,13 @@ class _ImageFromServerState extends State<ImageFromServer> {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
           print('이미지 도착');
-          return Image.memory(snapshot.data!);
+          print('이게 snapshot data : $snapshot.data');
+          return Container(
+            width: 500,
+            height: 500,
+            color: Colors.white,
+            child: Image.memory(snapshot.data!),
+          );
         } else if (snapshot.hasError) {
           print('이미지 도착 실패');
           print('Error loading image: ${snapshot.error}');
@@ -105,6 +112,8 @@ class _ImageFromServerState extends State<ImageFromServer> {
         } else {
           return Center(
             child: Container(
+              width: 500,
+              height: 500,
               color: Colors.white,
               child: CircularProgressIndicator(),
             ),
