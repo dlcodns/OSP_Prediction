@@ -90,6 +90,16 @@ class _ImageFromServerState extends State<ImageFromServer> {
     }
   }
 
+  Future<Uint8List> _getImageBytesFromJson(snapshotData) async {
+    Map<String, dynamic> jsonResponse = jsonDecode(snapshotData);
+
+    // 이미지 데이터를 jsonResponse에서 추출하고 디코딩합니다.
+    String base64ImageData = jsonResponse['image_data'];
+    Uint8List imageBytes = base64Decode(base64ImageData);
+
+    return imageBytes;
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
