@@ -1,3 +1,4 @@
+/*
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -147,6 +148,63 @@ class _ImageFromServerState extends State<ImageFromServer> {
               return Image.memory(snapshot.data!);
             } else if (snapshot.hasError) {
               return Text("오류: ${snapshot.error}");
+            }
+            return CircularProgressIndicator();
+          },
+        ),
+      ),
+    );
+  }
+}
+*/
+
+import 'dart:convert';
+import 'dart:typed_data';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import 'api.dart';
+
+class ImageFromServer extends StatefulWidget {
+  @override
+  _ImageFromServerState createState() => _ImageFromServerState();
+}
+
+class _ImageFromServerState extends State<ImageFromServer> {
+  var uri = Uri.parse(API.predict);
+  Future<Uint8List> _getImageBytes() async {
+    try {
+      final response = await http.get(uri);
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+
+        // Extract and decode the image data from jsonResponse
+        String base64ImageData = jsonResponse['image_data'];
+        Uint8List imageBytes = base64Decode(base64ImageData);
+
+        return imageBytes;
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print('Error fetching image: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('JSON Server Image')),
+      body: Center(
+        child: FutureBuilder<Uint8List>(
+          future: _getImageBytes(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Image.memory(snapshot.data!);
+            } else if (snapshot.hasError) {
+              return Text("Error: ${snapshot.error}");
             }
             return CircularProgressIndicator();
           },
