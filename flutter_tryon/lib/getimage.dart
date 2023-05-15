@@ -81,23 +81,23 @@ class _ImageFromServerState extends State<ImageFromServer> {
   Future<Uint8List> _getImageBytes() async {
     try {
       final response = await http.get(uri);
-      print('여기는 지나감');
-      return response.bodyBytes;
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+        print('여기 지나감');
+        // 이미지 데이터를 jsonResponse에서 추출하고 디코딩합니다.
+        String base64ImageData = jsonResponse['image_data'];
+        Uint8List imageBytes = base64Decode(base64ImageData);
+        print('여기도 지나감');
+        print(imageBytes);
+        return imageBytes;
+      } else {
+        throw Exception('Failed to load data');
+      }
     } catch (e) {
-      print('에러임');
       print('Error fetching image: $e');
       rethrow;
     }
-  }
-
-  Future<Uint8List> _getImageBytesFromJson(snapshotData) async {
-    Map<String, dynamic> jsonResponse = jsonDecode(snapshotData);
-
-    // 이미지 데이터를 jsonResponse에서 추출하고 디코딩합니다.
-    String base64ImageData = jsonResponse['image_data'];
-    Uint8List imageBytes = base64Decode(base64ImageData);
-
-    return imageBytes;
   }
 
 /*
@@ -137,35 +137,21 @@ class _ImageFromServerState extends State<ImageFromServer> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _getImageBytes(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done &&
-            snapshot.hasData) {
-          return FutureBuilder(
-            future: _getImageBytesFromJson(snapshot.data),
-            builder: (context, jsonSnapshot) {
-              if (jsonSnapshot.connectionState == ConnectionState.done &&
-                  jsonSnapshot.hasData) {
-                return Container(
-                  child: Image.memory(jsonSnapshot.data as Uint8List),
-                );
-              } else if (jsonSnapshot.hasError) {
-                print('Error decoding JSON image data: ${jsonSnapshot.error}');
-                return Text(
-                    'Error decoding JSON image data: ${jsonSnapshot.error}');
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            },
-          );
-        } else if (snapshot.hasError) {
-          print('Error fetching image data: ${snapshot.error}');
-          return Text('Error fetching image data: ${snapshot.error}');
-        } else {
-          return Center(child: CircularProgressIndicator());
-        }
-      },
+    return Scaffold(
+      appBar: AppBar(title: Text('JSON 서버 이미지')),
+      body: Center(
+        child: FutureBuilder<Uint8List>(
+          future: _getImageBytes(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Image.memory(snapshot.data!);
+            } else if (snapshot.hasError) {
+              return Text("오류: ${snapshot.error}");
+            }
+            return CircularProgressIndicator();
+          },
+        ),
+      ),
     );
   }
 }
