@@ -13,3 +13,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class Guide extends StatefulWidget {
+  final String title;
+
+  Guide({required this.title});
+
+  @override
+  _GuideState createState() => _GuideState();
+}
