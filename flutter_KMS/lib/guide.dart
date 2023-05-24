@@ -41,7 +41,13 @@ class _GuideState extends State<Guide> {
                    Expanded(
                      child: Container(
                        height: 800,
-                      
+                       decoration: BoxDecoration(
+                         color: Colors.white,
+                         borderRadius: BorderRadius.only(
+                           topRight: Radius.circular(40),
+                           topLeft: Radius.circular(40),
+                         ),
+                       ),
                      ),
                    ),
                  ],
