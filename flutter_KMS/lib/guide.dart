@@ -28,7 +28,28 @@ class _GuideState extends State<Guide> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffE3DCFF),
-      
+      body: SafeArea(
+         child: SingleChildScrollView(
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.stretch,
+             children: [
+               SizedBox(
+                 height: 200,
+               ),
+               Row(
+                 children: [
+                   Expanded(
+                     child: Container(
+                       height: 800,
+                      
+                     ),
+                   ),
+                 ],
+               ),
+             ],
+           ),
+         ),
+      ),
     );
   }
 }
