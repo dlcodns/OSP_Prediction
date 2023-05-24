@@ -29,32 +29,27 @@ class _GuideState extends State<Guide> {
     return Scaffold(
       backgroundColor: Color(0xffE3DCFF),
       body: SafeArea(
-         child: SingleChildScrollView(
-           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.stretch,
-             children: [
-               SizedBox(
-                 height: 200,
-               ),
-               Row(
-                 children: [
-                   Expanded(
-                     child: Container(
-                       height: 800,
-                       decoration: BoxDecoration(
-                         color: Colors.white,
-                         borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(40),
-                           topLeft: Radius.circular(40),
-                         ),
-                       ),
-                     ),
-                   ),
-                 ],
-               ),
-             ],
-           ),
-         ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 200,
+              ),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
