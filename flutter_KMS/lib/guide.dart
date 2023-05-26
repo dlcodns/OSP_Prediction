@@ -75,6 +75,21 @@ class _GuideState extends State<Guide> {
                       _currentPage = page;
                     });
                   },
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(top: 60.0, bottom: 50.0),
+                          child: Center(
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                children: pageTextSpans[index],
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ),
 
               ),
             ),
