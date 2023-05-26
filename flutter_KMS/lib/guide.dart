@@ -141,4 +141,16 @@ class _GuideState extends State<Guide> {
       ),
     );
   }
+  Widget _buildTabItem(int pageIndex, IconData icon) {
+    return GestureDetector(
+      onTap: () {
+        _pageController.animateToPage(
+          pageIndex,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+      },
+
+    );
+  }
 }
