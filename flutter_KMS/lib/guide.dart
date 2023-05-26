@@ -8,8 +8,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'guide',
-      home: Guide(title: 'guide'),
+      title: 'Guide',
+      home: Guide(title: 'Guide'),
     );
   }
 }
@@ -26,14 +26,55 @@ class Guide extends StatefulWidget {
 class _GuideState extends State<Guide> {
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
-  
+
   List<String> imagePaths = [
     'assets/guide1.png',
     'assets/guide2.png',
     'assets/guide3.png',
     'assets/guide4.png',
   ];
-  
+
+  List<List<TextSpan>> pageTextSpans = [
+    [
+      TextSpan(
+        text: '‘Fitting Room’', style: TextStyle(color: Color(0xff6744F2)),
+      ),
+      TextSpan(
+        text: ' 고객의 신체 이미지와\n 의상의 이미지를 매칭하여 가상 피팅을\n 제공하는 앱 서비스 입니다.',
+      )
+    ],
+    [
+      TextSpan(
+        text: 'step 1. ', style: TextStyle(color: Color(0xff6744F2)),
+      ),
+      TextSpan(
+        text: '\n고객님의 신체 이미지를 저장하여\n 신체 정보를 제공해 주세요! ',
+      ),
+    ],
+    [
+      TextSpan(
+        text: 'step 2. ', style: TextStyle(color: Color(0xff6744F2)),
+      ),
+      TextSpan(
+        text: '\n착장하고 싶은 의상의 이미지를\n 업로드해 주세요! ',
+      ),
+    ],
+    [
+      TextSpan(
+        text: 'step 3. ', style: TextStyle(color: Color(0xff6744F2)),
+      ),
+      TextSpan(
+        text: '\n의상과 고객님의 신체 정보를 조합하여\n 피팅된 이미지를 제공합니다. ',
+      ),
+    ],
+    [
+      TextSpan(
+        text: '\nFitting Room을 이용하여\n 지금 바로 착장해 보세요!',
+        style: TextStyle(fontSize: 30),
+      ),
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,6 +189,7 @@ class _GuideState extends State<Guide> {
       ),
     );
   }
+
   Widget _buildTabItem(int pageIndex, IconData icon) {
     return GestureDetector(
       onTap: () {
