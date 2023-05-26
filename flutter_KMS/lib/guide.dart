@@ -39,7 +39,7 @@ class _GuideState extends State<Guide> {
               flex: 6,
               child: SizedBox(),
             ),
-           Expanded(
+            Expanded(
               flex: 1,
               child: Container(
                 decoration: BoxDecoration(
@@ -90,7 +90,8 @@ class _GuideState extends State<Guide> {
                             ),
                           ),
                         ),
-                        Expanded(
+                        if (index != 4)
+                          Expanded(
                             child: SingleChildScrollView(
                               physics: AlwaysScrollableScrollPhysics(),
                               child: Container(
@@ -101,7 +102,8 @@ class _GuideState extends State<Guide> {
                               ),
                             ),
                           ),
-                        Container(
+                        if (index == 4)
+                          Container(
                             padding: EdgeInsets.all(20),
                             child: ElevatedButton(
                               onPressed: () {
@@ -115,7 +117,7 @@ class _GuideState extends State<Guide> {
                                 textStyle: TextStyle(
                                   fontSize: 24.0,
                                 ),
-                                primary: Color(0xff6744F2),
+                                backgroundColor: Color(0xff6744F2),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
@@ -128,7 +130,10 @@ class _GuideState extends State<Guide> {
                               ),
                             ),
                           ),
-
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],
