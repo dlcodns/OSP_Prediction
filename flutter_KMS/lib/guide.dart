@@ -47,7 +47,16 @@ class _GuideState extends State<Guide> {
                     topRight: Radius.circular(40),
                   ),
                 ),
-               
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildTabItem(0, Icons.circle),
+                    _buildTabItem(1, Icons.circle),
+                    _buildTabItem(2, Icons.circle),
+                    _buildTabItem(3, Icons.circle),
+                    _buildTabItem(4, Icons.circle),
+                  ],
+                ),
               ),
             ),
             Expanded(
