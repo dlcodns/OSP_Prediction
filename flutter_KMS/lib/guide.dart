@@ -27,6 +27,13 @@ class _GuideState extends State<Guide> {
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
   
+  List<String> imagePaths = [
+    'assets/guide1.png',
+    'assets/guide2.png',
+    'assets/guide3.png',
+    'assets/guide4.png',
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
