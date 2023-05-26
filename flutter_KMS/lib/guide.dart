@@ -24,6 +24,9 @@ class Guide extends StatefulWidget {
 }
 
 class _GuideState extends State<Guide> {
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,22 +39,20 @@ class _GuideState extends State<Guide> {
               height: 200,
             ),
             Expanded(
+              flex: 15,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(40),
-                    topLeft: Radius.circular(40),
-                  ),
                 ),
-                child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  child: Column(
-                    children: [
-                      
-                    ],
-                  ),
-                ),
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: 5,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+
               ),
             ),
           ],
