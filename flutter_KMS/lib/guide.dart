@@ -150,7 +150,14 @@ class _GuideState extends State<Guide> {
           curve: Curves.ease,
         );
       },
-
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: Icon(
+          icon,
+          size: 12,
+          color: _currentPage == pageIndex ? Color(0xff6744F2) : Color(0xffD9D9D9),
+        ),
+      ),
     );
   }
 }
