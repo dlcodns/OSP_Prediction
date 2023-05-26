@@ -90,6 +90,17 @@ class _GuideState extends State<Guide> {
                             ),
                           ),
                         ),
+                        Expanded(
+                            child: SingleChildScrollView(
+                              physics: AlwaysScrollableScrollPhysics(),
+                              child: Container(
+                                padding: EdgeInsets.all(20),
+                                child: Image.asset(
+                                  imagePaths[index],
+                                ),
+                              ),
+                            ),
+                          ),
 
               ),
             ),
