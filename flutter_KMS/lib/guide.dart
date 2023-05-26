@@ -101,6 +101,33 @@ class _GuideState extends State<Guide> {
                               ),
                             ),
                           ),
+                        Container(
+                            padding: EdgeInsets.all(20),
+                            child: ElevatedButton(
+                              onPressed: () {
+
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 20.0,
+                                  horizontal: 32.0,
+                                ),
+                                textStyle: TextStyle(
+                                  fontSize: 24.0,
+                                ),
+                                primary: Color(0xff6744F2),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                              child: Text(
+                                'Start',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
 
               ),
             ),
