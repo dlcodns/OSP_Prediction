@@ -35,10 +35,12 @@ class _GuideState extends State<Guide> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(
-              height: 200,
-            ),
             Expanded(
+              flex: 6,
+              child: SizedBox(),
+            ),
+           Expanded(
+              flex: 1,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
