@@ -16,7 +16,19 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: const Color(0xffE3DCFF),
           elevation: 0,
-         
+          title: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0, top: 50),
+                child: Image.asset(
+                  'assets/logo.png',
+                  width: 184,
+                  height: 36,
+                ),
+              ),
+             
+            ],
+          ),
         ),
       ),
     );
