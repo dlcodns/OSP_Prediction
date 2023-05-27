@@ -26,7 +26,21 @@ class MyApp extends StatelessWidget {
                   height: 36,
                 ),
               ),
-             
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 12.0, top: 50),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.settings_backup_restore,
+                    color: Color(0xff404040),
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    
+                  },
+                ),
+              ),
+              
             ],
           ),
         ),
