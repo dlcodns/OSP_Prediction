@@ -40,7 +40,19 @@ class MyApp extends StatelessWidget {
                   },
                 ),
               ),
-              
+              Padding(
+                padding: const EdgeInsets.only(right: 30.0, top: 50),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.person,
+                    color: Color(0xff404040),
+                    size: 30,
+                  ),
+                  onPressed: () {
+
+                  },
+                ),
+              ),
             ],
           ),
         ),
