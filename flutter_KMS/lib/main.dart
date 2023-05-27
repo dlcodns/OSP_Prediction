@@ -11,7 +11,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'main',
-
+      home: Scaffold(
+        backgroundColor: const Color(0xffE3DCFF),
+        appBar: AppBar(
+          backgroundColor: const Color(0xffE3DCFF),
+          elevation: 0,
+         
+        ),
+      ),
     );
   }
 } 
