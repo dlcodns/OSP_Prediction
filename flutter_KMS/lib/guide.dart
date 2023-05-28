@@ -10,7 +10,19 @@ class MyGuide extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Guide',
-      home: Guide(title: 'Guide'),
+      home: Scaffold(
+        backgroundColor: const Color(0xffE3DCFF),
+        body: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                color: const Color(0x40000000),
+              ),
+            ),
+            Guide(title: 'Guide'),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -79,117 +91,161 @@ class _GuideState extends State<Guide> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffE3DCFF),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              flex: 6,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
+      backgroundColor: Colors.transparent,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            child: AppBar(
+              toolbarHeight: 120,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, top: 53),
+                    child: Image.asset(
+                      'assets/logo.png',
+                      width: 220,
+                      height: 44,
+                    ),
                   ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _buildTabItem(0, Icons.circle),
-                    _buildTabItem(1, Icons.circle),
-                    _buildTabItem(2, Icons.circle),
-                    _buildTabItem(3, Icons.circle),
-                    _buildTabItem(4, Icons.circle),
-                  ],
-                ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 12.0, top: 45),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.settings_backup_restore,
+                        color: Color(0xff404040),
+                        size: 35,
+                      ),
+                      onPressed: () {
+
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30.0, top: 45),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.person,
+                        color: Color(0xff404040),
+                        size: 35,
+                      ),
+                      onPressed: () {
+
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
+          ),
+          Expanded(
+            flex: 2,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
                 ),
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: 5,
-                  onPageChanged: (int page) {
-                    setState(() {
-                      _currentPage = page;
-                    });
-                  },
-                  itemBuilder: (BuildContext context, int index) {
-                    return Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(top: 60.0, bottom: 50.0),
-                          child: Center(
-                            child: RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
-                                children: pageTextSpans[index],
-                                style: TextStyle(fontSize: 20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _buildTabItem(0, Icons.circle),
+                  _buildTabItem(1, Icons.circle),
+                  _buildTabItem(2, Icons.circle),
+                  _buildTabItem(3, Icons.circle),
+                  _buildTabItem(4, Icons.circle),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 20,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: 5,
+                onPageChanged: (int page) {
+                  setState(() {
+                    _currentPage = page;
+                  });
+                },
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(top: 60.0, bottom: 50.0),
+                        child: Center(
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: pageTextSpans[index],
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (index != 4)
+                        Expanded(
+                          child: SingleChildScrollView(
+                            physics: AlwaysScrollableScrollPhysics(),
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              child: Image.asset(
+                                imagePaths[index],
                               ),
                             ),
                           ),
                         ),
-                        if (index != 4)
-                          Expanded(
-                            child: SingleChildScrollView(
-                              physics: AlwaysScrollableScrollPhysics(),
-                              child: Container(
-                                padding: EdgeInsets.all(20),
-                                child: Image.asset(
-                                  imagePaths[index],
-                                ),
+                      if (index == 4)
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MainPage()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 20.0,
+                                horizontal: 32.0,
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: 24.0,
+                              ),
+                              backgroundColor: Color(0xff6744F2),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                            ),
+                            child: Text(
+                              'Start',
+                              style: TextStyle(
+                                color: Colors.white,
                               ),
                             ),
                           ),
-                        if (index == 4)
-                          Container(
-                            padding: EdgeInsets.all(20),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => MainPage()),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 20.0,
-                                  horizontal: 32.0,
-                                ),
-                                textStyle: TextStyle(
-                                  fontSize: 24.0,
-                                ),
-                                backgroundColor: Color(0xff6744F2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                              ),
-                              child: Text(
-                                'Start',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
-                    );
-                  },
-                ),
+                        ),
+                    ],
+                  );
+                },
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
