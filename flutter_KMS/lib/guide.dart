@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_kms/main.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyGuide());
 }
 
-class MyApp extends StatelessWidget {
+class MyGuide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -155,7 +156,10 @@ class _GuideState extends State<Guide> {
                             padding: EdgeInsets.all(20),
                             child: ElevatedButton(
                               onPressed: () {
-
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MainPage()),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(
