@@ -150,6 +150,9 @@ class _GuideState extends State<Guide> {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
+                border: Border.all(
+                    color: Colors.white, width: 0.0
+                ),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -171,6 +174,9 @@ class _GuideState extends State<Guide> {
             flex: 20,
             child: Container(
               decoration: BoxDecoration(
+                border: Border.all(
+                    color: Colors.white, width: 0.0
+                ),
                 color: Colors.white,
               ),
               child: PageView.builder(
