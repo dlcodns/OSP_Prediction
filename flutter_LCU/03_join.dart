@@ -54,5 +54,13 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
+    return Align(
+                  alignment: Alignment(-0.9,0.0),
+                  child: Text('\n이메일*',
+                    style: TextStyle(
+                        fontSize: 16
+                    ),
+                  ),
+                ),
   }
 }
