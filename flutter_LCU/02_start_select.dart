@@ -42,6 +42,9 @@ class HomeApp extends StatelessWidget{
             ),
           ElevatedButton(
                     onPressed: (){},
+            style: ElevatedButton.styleFrom(
+                      elevation: 5,
+                      backgroundColor: Color(0xff6744F2),
                     child: Text(
                       '로그인'
                       ),
