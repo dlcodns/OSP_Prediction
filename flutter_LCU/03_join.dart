@@ -119,6 +119,23 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
+                Container(height: 5),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: '비밀번호를 한 번 더 입력해주세요.',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder()
+                      ),
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                ),
                 ]
       );
   }
