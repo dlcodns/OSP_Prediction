@@ -25,5 +25,19 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
+    return Stack(
+      children: <Widget>[
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Image.asset('1_door.png',height: MediaQuery.of(context).size.height),
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+              
+          ),
+        )
+      ],
+    );
   }
 }
