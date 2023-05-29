@@ -226,6 +226,26 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const Text('마케팅 정보 수신 선택 동의',
+                      style: TextStyle(
+                          fontSize: 14
+                      ),
+                    ),
+                    SizedBox(
+                      height: 19.0,
+                      child: TextButton(
+                        child: const Text('자세히 보기',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 14,
+                              color: Color(0xff404040)
+                          ),
+                        ),
+                        onPressed: (){
+                          //마케팅 정보 수신 선택 동의
+                        },
+                      ),
+                    ),
                 ]
       );
   }
