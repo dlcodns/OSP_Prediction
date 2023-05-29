@@ -171,6 +171,21 @@ class HomeApp extends StatelessWidget{
                           fontSize: 14
                       ),
                     ),
+                    SizedBox(
+                      height: 19.0,
+                      child: TextButton(
+                        child: const Text('자세히 보기',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 14,
+                              color: Color(0xff404040)
+                          ),
+                        ),
+                        onPressed: (){
+                          //서비스 이용약관
+                        },
+                      ),
+                    ),
                 ]
       );
   }
