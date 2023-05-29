@@ -34,7 +34,12 @@ class HomeApp extends StatelessWidget{
         Align(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
-              
+              child: IconButton(
+                  iconSize: MediaQuery.of(context).size.height*0.08,
+                  onPressed: (){
+                  },
+                  icon: Image.asset(
+                      '1_start.png'
           ),
         )
       ],
