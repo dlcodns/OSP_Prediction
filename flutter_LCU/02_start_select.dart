@@ -25,5 +25,15 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
+    return Column(
+        children: <Widget>[
+          Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
+          ElevatedButton(
+                    onPressed: (){},
+                    child: Text(
+                      '회원가입'
+                      ),
+        ],
+      );
   }
 }
