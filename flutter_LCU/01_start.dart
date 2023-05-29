@@ -18,3 +18,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class HomeApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    
+  }
+}
