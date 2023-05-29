@@ -168,95 +168,115 @@ class HomeApp extends StatelessWidget{
                   ),
                 ),
                 Container(height: 50),
-                const CheckboxExample(),
-                const Text('이용약관 필수 동의',
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
-                    ),
-                    SizedBox(
-                      height: 19.0,
-                      child: TextButton(
-                        child: const Text('자세히 보기',
+                Row(
+                      children: [
+                        const CheckboxExample(),
+                        const Text('이용약관 필수 동의',
                           style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 14,
-                              color: Color(0xff404040)
+                              fontSize: 14
                           ),
                         ),
-                        onPressed: (){
-                          //서비스 이용약관
-                        },
-                      ),
-                    ),
-                const CheckboxExample(),
-                const Text('개인정보 처리방침 필수 동의',
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
-                    ),
-                    SizedBox(
-                      height: 19.0,
-                      child: TextButton(
-                        child: const Text('자세히 보기',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 14,
-                              color: Color(0xff404040)
+                        SizedBox(
+                          height: 19.0,
+                          child: TextButton(
+                            child: const Text('자세히 보기',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  color: Color(0xff404040)
+                              ),
+                            ),
+                            onPressed: (){
+                              //서비스 이용약관
+                            },
                           ),
                         ),
-                        onPressed: (){
-                          //개인정보 처리방침
-                        },
-                      ),
+                      ],
                     ),
-                const CheckboxExample(),
-                const Text('위치정보 이용 약관 필수 동의',
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
-                    ),
-                    SizedBox(
-                      height: 19.0,
-                      child: TextButton(
-                        child: const Text('자세히 보기',
+                    Row(
+                      children: [
+                        const CheckboxExample(),
+                        const Text('개인정보 처리방침 필수 동의',
                           style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 14,
-                              color: Color(0xff404040)
+                              fontSize: 14
                           ),
                         ),
-                        onPressed: (){
-                          //위치정보 이용 약관 필수 동의
-                        },
-                      ),
-                    ),
-                const CheckboxExample(),
-                const Text('마케팅 정보 수신 선택 동의',
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
-                    ),
-                    SizedBox(
-                      height: 19.0,
-                      child: TextButton(
-                        child: const Text('자세히 보기',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 14,
-                              color: Color(0xff404040)
+                        SizedBox(
+                          height: 19.0,
+                          child: TextButton(
+                            child: const Text('자세히 보기',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  color: Color(0xff404040)
+                              ),
+                            ),
+                            onPressed: (){
+                              //개인정보 처리방침
+                            },
                           ),
                         ),
-                        onPressed: (){
-                          //마케팅 정보 수신 선택 동의
-                        },
-                      ),
+                      ],
                     ),
-                const CheckboxExample(),
-                Text('만 14세 이상임에 필수 동의',
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
+                    Row(
+                      children: [
+                        const CheckboxExample(),
+                        const Text('위치정보 이용 약관 필수 동의',
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
+                        ),
+                        SizedBox(
+                          height: 19.0,
+                          child: TextButton(
+                            child: const Text('자세히 보기',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  color: Color(0xff404040)
+                              ),
+                            ),
+                            onPressed: (){
+                              //위치정보 이용 약관 필수 동의
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const CheckboxExample(),
+                        const Text('마케팅 정보 수신 선택 동의',
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
+                        ),
+                        SizedBox(
+                          height: 19.0,
+                          child: TextButton(
+                            child: const Text('자세히 보기',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  color: Color(0xff404040)
+                              ),
+                            ),
+                            onPressed: (){
+                              //마케팅 정보 수신 선택 동의
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        CheckboxExample(),
+                        Text('만 14세 이상임에 필수 동의',
+                          style: TextStyle(
+                              fontSize: 14
+                          ),
+                        ),
+                      ],
                     ),
                 ]
       ),
