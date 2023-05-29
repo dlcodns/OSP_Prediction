@@ -29,7 +29,10 @@ class HomeApp extends StatelessWidget{
         children: <Widget>[
           Flexible(
             flex: 1,
-            child: Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
+            child: Align(
+              alignment: Alignment(0.0,0.6),
+              child: Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
+            ),
           ),
           Flexible(
             flex: 1,
