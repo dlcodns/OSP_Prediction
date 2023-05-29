@@ -58,7 +58,10 @@ class HomeApp extends StatelessWidget{
                       ),
                     ),
                     child: Text(
-                      '로그인'
+                      '로그인',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold),
                       ),
         ],
       );
