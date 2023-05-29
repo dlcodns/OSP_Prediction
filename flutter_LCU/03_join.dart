@@ -54,7 +54,9 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
-    return Align(
+    return ListView(
+              children: [
+                const Align(
                   alignment: Alignment(-0.9,0.0),
                   child: Text('\n이메일*',
                     style: TextStyle(
@@ -62,5 +64,24 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
+                Container(height: 5),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: 'ex) woowang@gmail.com',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder()
+                      ),
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                ),
+                ]
+      );
   }
 }
