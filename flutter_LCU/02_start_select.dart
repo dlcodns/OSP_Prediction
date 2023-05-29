@@ -33,6 +33,12 @@ class HomeApp extends StatelessWidget{
                     child: Text(
                       '회원가입'
                       ),
+            ),
+          ElevatedButton(
+                    onPressed: (){},
+                    child: Text(
+                      '로그인'
+                      ),
         ],
       );
   }
