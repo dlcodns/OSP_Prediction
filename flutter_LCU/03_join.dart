@@ -254,7 +254,28 @@ class HomeApp extends StatelessWidget{
                       ),
                     ),
                 ]
-      )
+      ),
+        Container(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+              width:double.infinity,
+              height: 73,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Color(0xff6744F2)),
+                child: const Text('다음',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                onPressed: (){
+                  //Navigator.push(
+                  //  context,
+                  //  MaterialPageRoute(builder: (context)=>Celebration()));
+                },
+              )
+          ),
+        ),
         ]
       );
   }
