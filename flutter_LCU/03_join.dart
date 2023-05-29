@@ -56,7 +56,8 @@ class HomeApp extends StatelessWidget{
     print("높이 : ${m.size.height}");
     return Column(
       children: [
-        ListView(
+        Expanded(
+          child: ListView(
               children: [
                 const Align(
                   alignment: Alignment(-0.9,0.0),
@@ -168,7 +169,9 @@ class HomeApp extends StatelessWidget{
                   ),
                 ),
                 Container(height: 50),
-                Row(
+                Column(
+                  children: [
+                    Row(
                       children: [
                         const CheckboxExample(),
                         const Text('이용약관 필수 동의',
@@ -278,8 +281,11 @@ class HomeApp extends StatelessWidget{
                         ),
                       ],
                     ),
-                ]
-      ),
+                  ],
+                ),
+              ]
+          ),
+        ),
         Container(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
@@ -301,11 +307,10 @@ class HomeApp extends StatelessWidget{
               )
           ),
         ),
-        ]
-      );
+      ],
+    );
   }
 }
-
 class CheckboxExample extends StatefulWidget {
   const CheckboxExample({super.key});
 
