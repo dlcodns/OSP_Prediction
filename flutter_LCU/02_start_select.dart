@@ -8,7 +8,13 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
     
+    return MaterialApp(
+      title: 'start_select',
+      home: Scaffold(
+        backgroundColor: Color(0xffE3DCFF),
+        body: HomeApp(),
+      ),
+    );
   }
 }
