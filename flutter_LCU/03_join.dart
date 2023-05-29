@@ -186,6 +186,26 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const Text('개인정보 처리방침 필수 동의',
+                      style: TextStyle(
+                          fontSize: 14
+                      ),
+                    ),
+                    SizedBox(
+                      height: 19.0,
+                      child: TextButton(
+                        child: const Text('자세히 보기',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 14,
+                              color: Color(0xff404040)
+                          ),
+                        ),
+                        onPressed: (){
+                          //개인정보 처리방침
+                        },
+                      ),
+                    ),
                 ]
       );
   }
