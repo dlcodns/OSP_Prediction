@@ -13,12 +13,22 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
-            title: IconButton(
-                iconSize: 30,
-                onPressed: (){
-                  //start_select
-                },
-                icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
+            title: Row(
+              children:  [
+              IconButton(
+                  iconSize: 30,
+                  onPressed: (){
+                    //start_select
+                  },
+                  icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
+              ),
+                Text('  회원가입',
+                  style: TextStyle(
+                      fontSize: 28,
+                      color: Color(0xff404040),
+                      fontWeight: FontWeight.bold
+                  ),)
+              ],
             ),
         ),
         body: HomeApp(),
