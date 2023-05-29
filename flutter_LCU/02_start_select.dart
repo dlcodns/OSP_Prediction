@@ -31,52 +31,61 @@ class HomeApp extends StatelessWidget{
             flex: 1,
             child: Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
           ),
-          SizedBox(
-                  width: MediaQuery.of(context).size.width*0.45,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: (){//join
-                      //launch('start_select://'
-                      //);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 5,
-                      backgroundColor: Color(0xffFFFFFF), // 버튼의 배경색
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
-                      ),
-                    ),
-                    child: Text(
-                      '회원가입',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff636366)),
+          Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width*0.45,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: (){//join
+                    //launch('start_select://'
+                    //);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Color(0xffFFFFFF), // 버튼의 배경색
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
                     ),
                   ),
-                ),
-          SizedBox(
-                  width: MediaQuery.of(context).size.width*0.45,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: (){
-                      //login
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 5,
-                      backgroundColor: Color(0xff6744F2), // 버튼의 배경색
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
-                      ),
-                    ),
-                    child: Text(
-                      '로그인',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  child: Text(
+                    '회원가입',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff636366)),
                   ),
                 ),
+              ),
+              SizedBox(
+                child: Container(
+                  height: 25,
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width*0.45,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: (){
+                    //login
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    backgroundColor: Color(0xff6744F2), // 버튼의 배경색
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
+                    ),
+                  ),
+                  child: Text(
+                    '로그인',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       );
   }
