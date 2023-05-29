@@ -42,6 +42,8 @@ class HomeApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    
+    var m = MediaQuery.of(context);
+    print("넓이 : ${m.size.width}");
+    print("높이 : ${m.size.height}");
   }
 }
