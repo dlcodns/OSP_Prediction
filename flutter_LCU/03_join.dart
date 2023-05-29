@@ -12,6 +12,15 @@ class MyApp extends StatelessWidget {
       title: 'result',
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
+        appBar: AppBar(
+            title: IconButton(
+                iconSize: 30,
+                onPressed: (){
+                  //start_select
+                },
+                icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
+            ),
+        ),
         body: HomeApp(),
       ),
     );
