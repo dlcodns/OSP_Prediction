@@ -31,12 +31,18 @@ class HomeApp extends StatelessWidget{
             flex: 1,
             child: Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
           ),
-          ElevatedButton(
-                    onPressed: (){},
-            style: ElevatedButton.styleFrom(
+          SizedBox(
+                  width: MediaQuery.of(context).size.width*0.45,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: (){//join
+                      //launch('start_select://'
+                      //);
+                    },
+                    style: ElevatedButton.styleFrom(
                       elevation: 5,
-                      backgroundColor: Color(0xffFFFFFF),
-              shape: RoundedRectangleBorder(
+                      backgroundColor: Color(0xffFFFFFF), // 버튼의 배경색
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
                       ),
                     ),
@@ -46,8 +52,9 @@ class HomeApp extends StatelessWidget{
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff636366)),
-                      ),
-            ),
+                    ),
+                  ),
+                ),
           ElevatedButton(
                     onPressed: (){},
             style: ElevatedButton.styleFrom(
