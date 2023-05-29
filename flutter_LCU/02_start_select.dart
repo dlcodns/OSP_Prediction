@@ -36,6 +36,10 @@ class HomeApp extends StatelessWidget{
             style: ElevatedButton.styleFrom(
                       elevation: 5,
                       backgroundColor: Color(0xffFFFFFF),
+              shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
+                      ),
+                    ),
                     child: Text(
                       '회원가입'
                       ),
@@ -45,6 +49,10 @@ class HomeApp extends StatelessWidget{
             style: ElevatedButton.styleFrom(
                       elevation: 5,
                       backgroundColor: Color(0xff6744F2),
+              shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
+                      ),
+                    ),
                     child: Text(
                       '로그인'
                       ),
