@@ -9,7 +9,7 @@ class Join extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'result',
+      title: 'join',
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
