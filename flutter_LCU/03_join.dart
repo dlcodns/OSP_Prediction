@@ -168,6 +168,7 @@ class HomeApp extends StatelessWidget{
                   ),
                 ),
                 Container(height: 50),
+                const CheckboxExample(),
                 const Text('이용약관 필수 동의',
                       style: TextStyle(
                           fontSize: 14
@@ -188,6 +189,7 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const CheckboxExample(),
                 const Text('개인정보 처리방침 필수 동의',
                       style: TextStyle(
                           fontSize: 14
@@ -208,6 +210,7 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const CheckboxExample(),
                 const Text('위치정보 이용 약관 필수 동의',
                       style: TextStyle(
                           fontSize: 14
@@ -228,6 +231,7 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const CheckboxExample(),
                 const Text('마케팅 정보 수신 선택 동의',
                       style: TextStyle(
                           fontSize: 14
@@ -248,6 +252,7 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                const CheckboxExample(),
                 Text('만 14세 이상임에 필수 동의',
                       style: TextStyle(
                           fontSize: 14
@@ -278,5 +283,42 @@ class HomeApp extends StatelessWidget{
         ),
         ]
       );
+  }
+}
+
+class CheckboxExample extends StatefulWidget {
+  const CheckboxExample({super.key});
+
+  @override
+  State<CheckboxExample> createState() => _CheckboxExampleState();
+}
+
+class _CheckboxExampleState extends State<CheckboxExample> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return const Color(0xff6744F2);
+      }
+      return const Color(0xffBDBDBD);
+    }
+
+    return Checkbox(
+      checkColor: Colors.white,
+      fillColor: MaterialStateProperty.resolveWith(getColor),
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value!;
+        });
+      },
+    );
   }
 }
