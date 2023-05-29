@@ -133,6 +133,9 @@ class HomeApp extends StatelessWidget{
                           border: OutlineInputBorder()
                       ),
                       style: TextStyle(fontSize: 14),
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
                     ),
                   ),
                 ),
