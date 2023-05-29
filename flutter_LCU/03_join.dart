@@ -81,6 +81,15 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
+                Container(height: 10),
+                const Align(
+                  alignment: Alignment(-0.9,0.0),
+                  child: Text('비밀번호*',
+                    style: TextStyle(
+                        fontSize: 16
+                    ),
+                  ),
+                ),
                 ]
       );
   }
