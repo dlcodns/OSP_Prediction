@@ -27,9 +27,15 @@ class HomeApp extends StatelessWidget{
     print("높이 : ${m.size.height}");
     return Column(
         children: <Widget>[
-          Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
+          Flexible(
+            flex: 1,
+            child: Image.asset('2_Fitting_Room.png',width: MediaQuery.of(context).size.width*0.6),
+          ),
           ElevatedButton(
                     onPressed: (){},
+            style: ElevatedButton.styleFrom(
+                      elevation: 5,
+                      backgroundColor: Color(0xffFFFFFF),
                     child: Text(
                       '회원가입'
                       ),
