@@ -246,6 +246,12 @@ class HomeApp extends StatelessWidget{
                         },
                       ),
                     ),
+                Text('만 14세 이상임에 필수 동의',
+                      style: TextStyle(
+                          fontSize: 14
+                      ),
+                    ),
+                
                 ]
       );
   }
