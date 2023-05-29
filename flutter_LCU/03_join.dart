@@ -10,19 +10,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MaterialApp(
-      title: 'result',
+      title: 'join',
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
-            title: Row(
+          toolbarHeight: 100,
+          elevation: 0,
+          shadowColor: Color(0xffE6E6E6),
+          backgroundColor: Color(0xffFFFFFF),
+          title: Padding(
+            padding: EdgeInsets.only(right:12.0,top:43),
+            child: Row(
               children:  [
-              IconButton(
-                  iconSize: 30,
-                  onPressed: (){
-                    //start_select
-                  },
-                  icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
-              ),
+                IconButton(
+                    iconSize: 30,
+                    onPressed: (){
+                      //Navigator.push(
+                      //    context,
+                      //    MaterialPageRoute(builder: (context)=>StartSelect()));
+                    },
+                    icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
+                ),
                 Text('  회원가입',
                   style: TextStyle(
                       fontSize: 28,
@@ -31,6 +39,7 @@ class MyApp extends StatelessWidget {
                   ),)
               ],
             ),
+          ),
         ),
         body: HomeApp(),
       ),
