@@ -41,7 +41,11 @@ class HomeApp extends StatelessWidget{
                       ),
                     ),
                     child: Text(
-                      '회원가입'
+                      '회원가입',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff636366)),
                       ),
             ),
           ElevatedButton(
