@@ -27,19 +27,30 @@ class HomeApp extends StatelessWidget{
     print("높이 : ${m.size.height}");
     return Stack(
       children: <Widget>[
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Image.asset('1_door.png',height: MediaQuery.of(context).size.height),
+        Flexible(
+          fit: FlexFit.loose,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset('1_door.png',height: MediaQuery.of(context).size.height),
+          ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-              child: IconButton(
+        Flexible(
+          fit: FlexFit.loose,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+                child: IconButton(
                   iconSize: MediaQuery.of(context).size.height*0.08,
                   onPressed: (){
+                    //Navigator.push(
+                    //  context,
+                    //  MaterialPageRoute(builder: (context)=>StartSelect()));
                   },
                   icon: Image.asset(
                       '1_start.png'
+                  ),
+                )
+            ),
           ),
         )
       ],
