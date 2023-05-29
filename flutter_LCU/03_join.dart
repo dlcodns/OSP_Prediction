@@ -165,6 +165,12 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
+                Container(height: 50),
+                const Text('이용약관 필수 동의',
+                      style: TextStyle(
+                          fontSize: 14
+                      ),
+                    ),
                 ]
       );
   }
