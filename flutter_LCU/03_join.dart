@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       title: 'result',
       home: Scaffold(
@@ -34,5 +35,13 @@ class MyApp extends StatelessWidget {
         body: HomeApp(),
       ),
     );
+  }
+}
+
+class HomeApp extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context){
+    
   }
 }
