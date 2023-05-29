@@ -55,12 +55,17 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
-          ElevatedButton(
-                    onPressed: (){},
-            style: ElevatedButton.styleFrom(
+          SizedBox(
+                  width: MediaQuery.of(context).size.width*0.45,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: (){
+                      //login
+                    },
+                    style: ElevatedButton.styleFrom(
                       elevation: 5,
-                      backgroundColor: Color(0xff6744F2),
-              shape: RoundedRectangleBorder(
+                      backgroundColor: Color(0xff6744F2), // 버튼의 배경색
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(13.0), // 버튼의 둥근 모서리 설정
                       ),
                     ),
@@ -69,7 +74,9 @@ class HomeApp extends StatelessWidget{
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
-                      ),
+                    ),
+                  ),
+                ),
         ],
       );
   }
