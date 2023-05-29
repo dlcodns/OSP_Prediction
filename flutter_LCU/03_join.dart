@@ -90,6 +90,23 @@ class HomeApp extends StatelessWidget{
                     ),
                   ),
                 ),
+                Container(height: 5),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          labelText: '영문, 숫자 조합 8~16자',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder()
+                      ),
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                ),
                 ]
       );
   }
