@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:setting/modify.dart';
 
 void main() {
-  runApp(const MyApp());  //앱 시작해주세요!, MyApp(메인페이지 주소)
+  runApp(const Setting());  //앱 시작해주세요!, MyApp(메인페이지 주소)
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Setting extends StatelessWidget {
+  const Setting({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'result',
+      title: 'setting',
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
+          toolbarHeight: 100,
+          elevation: 4,
+          shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
-          title: Row(
-            children: const [
-              Icon(Icons.settings, color: Color(0xff404040), size: 30,              ),
-              Text('  설정',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xff404040),
-                    fontWeight: FontWeight.bold
-                ),)
-            ],
+          title: Padding(
+            padding: EdgeInsets.only(right:12.0,top:43),
+            child: Row(
+              children: const [
+                Icon(Icons.settings, color: Color(0xff404040), size: 30,              ),
+                Text('  설정',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Color(0xff404040),
+                      fontWeight: FontWeight.bold
+                  ),)
+              ],
+            ),
           ),
         ),
         body: HomeApp(),
@@ -33,9 +40,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeApp extends StatelessWidget{
+class HomeApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
@@ -53,7 +60,8 @@ class HomeApp extends StatelessWidget{
         ),
         Expanded(
           child: SizedBox(height: 6,
-              child: Container(decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
         ),
         Expanded(
           child: SizedBox(
@@ -68,7 +76,8 @@ class HomeApp extends StatelessWidget{
                   ),
                   Flexible(
                     flex: 17,
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text('    내 정보',
                             style: TextStyle(
@@ -78,7 +87,8 @@ class HomeApp extends StatelessWidget{
                             )
                         ),
                         Align(
-                            child: Icon(Icons.arrow_forward_ios,color: Color(0xffE3DCFF),)
+                            child: Icon(Icons.arrow_forward_ios,
+                              color: Color(0xffE3DCFF),)
                         )
                       ],
                     ),
@@ -102,7 +112,7 @@ class HomeApp extends StatelessWidget{
           child: SizedBox(
             height: 45,
             child: ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 //회원정보수정
               },
               style: ElevatedButton.styleFrom(
@@ -117,7 +127,8 @@ class HomeApp extends StatelessWidget{
                     ),
                     Flexible(
                       flex: 17,
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text('회원 정보 수정',
                               style: TextStyle(
@@ -126,7 +137,8 @@ class HomeApp extends StatelessWidget{
                               )
                           ),
                           Align(
-                              child: Icon(Icons.arrow_forward_ios,color: Color(0xff726F7A),)
+                              child: Icon(Icons.arrow_forward_ios, color: Color(
+                                  0xff726F7A),)
                           )
                         ],
                       ),
@@ -138,14 +150,15 @@ class HomeApp extends StatelessWidget{
         ),
         Expanded(
           child: SizedBox(height: 1,
-              child: Container(decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
         ),
 
         Expanded(
           child: SizedBox(
             height: 45,
             child: ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 //비밀번호 설정
               },
               style: ElevatedButton.styleFrom(
@@ -160,7 +173,8 @@ class HomeApp extends StatelessWidget{
                     ),
                     Flexible(
                       flex: 17,
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text('비밀번호 설정',
                               style: TextStyle(
@@ -169,7 +183,8 @@ class HomeApp extends StatelessWidget{
                               )
                           ),
                           Align(
-                              child: Icon(Icons.arrow_forward_ios,color: Color(0xff726F7A),)
+                              child: Icon(Icons.arrow_forward_ios, color: Color(
+                                  0xff726F7A),)
                           )
                         ],
                       ),
@@ -181,7 +196,8 @@ class HomeApp extends StatelessWidget{
         ),
         Expanded(
           child: SizedBox(height: 6,
-              child: Container(decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
         ),
 
         Expanded(
@@ -197,7 +213,8 @@ class HomeApp extends StatelessWidget{
                   ),
                   Flexible(
                     flex: 17,
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text('    설정',
                             style: TextStyle(
@@ -207,7 +224,8 @@ class HomeApp extends StatelessWidget{
                             )
                         ),
                         Align(
-                            child: Icon(Icons.arrow_forward_ios,color: Color(0xffE3DCFF),)
+                            child: Icon(Icons.arrow_forward_ios,
+                              color: Color(0xffE3DCFF),)
                         )
                       ],
                     ),
@@ -231,7 +249,7 @@ class HomeApp extends StatelessWidget{
           child: SizedBox(
             height: 45,
             child: ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 //알림 설정
               },
               style: ElevatedButton.styleFrom(
@@ -246,7 +264,8 @@ class HomeApp extends StatelessWidget{
                     ),
                     Flexible(
                       flex: 17,
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text('알림 설정',
                               style: TextStyle(
@@ -255,7 +274,8 @@ class HomeApp extends StatelessWidget{
                               )
                           ),
                           Align(
-                              child: Icon(Icons.arrow_forward_ios,color: Color(0xff726F7A),)
+                              child: Icon(Icons.arrow_forward_ios, color: Color(
+                                  0xff726F7A),)
                           )
                         ],
                       ),
@@ -267,14 +287,15 @@ class HomeApp extends StatelessWidget{
         ),
         Expanded(
           child: SizedBox(height: 1,
-              child: Container(decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
         ),
 
         Expanded(
           child: SizedBox(
             height: 45,
             child: ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 //비밀번호 설정
               },
               style: ElevatedButton.styleFrom(
@@ -289,7 +310,8 @@ class HomeApp extends StatelessWidget{
                     ),
                     Flexible(
                       flex: 17,
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text('로그아웃',
                               style: TextStyle(
@@ -298,7 +320,8 @@ class HomeApp extends StatelessWidget{
                               )
                           ),
                           Align(
-                              child: Icon(Icons.arrow_forward_ios,color: Color(0xff726F7A),)
+                              child: Icon(Icons.arrow_forward_ios, color: Color(
+                                  0xff726F7A),)
                           )
                         ],
                       ),
@@ -310,7 +333,8 @@ class HomeApp extends StatelessWidget{
         ),
         Expanded(
           child: SizedBox(height: 1,
-              child: Container(decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
         ),
 
         Expanded(
@@ -325,7 +349,8 @@ class HomeApp extends StatelessWidget{
                   ),
                   Flexible(
                     flex: 17,
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text('    회원 탈퇴',
                             style: TextStyle(
@@ -335,7 +360,8 @@ class HomeApp extends StatelessWidget{
                             )
                         ),
                         Align(
-                            child: Icon(Icons.arrow_forward_ios,color: Color(0xffE3DCFF),)
+                            child: Icon(Icons.arrow_forward_ios,
+                              color: Color(0xffE3DCFF),)
                         )
                       ],
                     ),
