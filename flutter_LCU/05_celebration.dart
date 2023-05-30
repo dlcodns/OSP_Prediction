@@ -51,6 +51,24 @@ class HomeApp extends StatelessWidget{
             Container(height: 60),
           ],
         ),
+        Expanded(
+          child: Opacity(
+            opacity: 0,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Color(0xffBDBDBD)
+              ),
+              onPressed: (){
+                //메인페이지
+              },
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+              )
+            ),
+          ),
+        )
       ],
     );
   }
