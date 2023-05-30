@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'result',
+      title: 'setting',
       home: Scaffold(
-        backgroundColor: const Color(0xffFFFFFF),
+        backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
           toolbarHeight: 100,
           elevation: 4,
           shadowColor: Color(0xffE6E6E6),
-          backgroundColor: Color(0xffFFFFFF),
+          backgroundColor: Color(0xffE3DCFF),
           title: Padding(
             padding: EdgeInsets.only(right:12.0,top:43),
             child: Row(
