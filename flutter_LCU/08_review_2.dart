@@ -8,22 +8,28 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+        return MaterialApp(
       title: 'review_2',
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
+          toolbarHeight: 100,
+          elevation: 4,
+          shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
-          title: Row(
-            children: const [
-              Icon(Icons.settings_backup_restore,color: Color(0xff404040),              ),
-              Text('  다시 보기',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xff404040),
-                    fontWeight: FontWeight.bold
-                ),)
-            ],
+          title: Padding(
+            padding: EdgeInsets.only(right:12.0,top:43),
+            child: Row(
+              children: const [
+                Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30,              ),
+                Text('  다시 보기',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Color(0xff404040),
+                      fontWeight: FontWeight.bold
+                  ),)
+              ],
+            ),
           ),
         ),
         body: HomeApp(),
