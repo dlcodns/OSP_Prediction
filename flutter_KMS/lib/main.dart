@@ -200,12 +200,36 @@ class Main extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 135, right: 135),
             child: ElevatedButton(
-            
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  vertical: 15.0,
+                  horizontal: 32.0,
+                ),
+                textStyle: TextStyle(
+                  fontSize: 30.0,
+                ),
+                backgroundColor: Color(0xff8C72F6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+              ),
+              child: Text(
+                'Fitting',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
           Expanded(
             flex: 6,
-       
+           
           ),
           Expanded(
             flex: 4,
