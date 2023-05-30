@@ -53,144 +53,169 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
-    return ListView(
+    return Column(
       children: [
-        Container(height: 30),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Flexible(
-              flex: 1,
-              child: SizedBox(),
-            ),
-            Flexible(
-              flex: 40,
-              child: Align(
-                alignment: Alignment(-0.9,0.0),
-                child: Text('기존 비밀번호',
-                  style: TextStyle(
-                      fontSize: 16
+        ListView(
+          children: [
+            Container(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(),
+                ),
+                Flexible(
+                  flex: 40,
+                  child: Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('기존 비밀번호',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
+                    ),
                   ),
+                ),
+              ],
+            ),
+            Container(height: 5),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width*0.9,
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xffEDEDED),
+                    labelText: '비밀번호를 입력해주세요.',
+                    labelStyle: TextStyle(
+                        color: Color(0xffBDBDBD)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xffEDEDED)),
+                    ),
+                  ),
+                  style: TextStyle(
+                      fontSize: 14),
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                ),
+              ),
+            ),
+            Container(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(),
+                ),
+                Flexible(
+                  flex: 40,
+                  child: Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('새 비밀번호',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Container(height: 5),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width*0.9,
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xffEDEDED),
+                    labelText: '새로운 비밀번호를 입력해주세요.',
+                    labelStyle: TextStyle(
+                        color: Color(0xffBDBDBD)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xffEDEDED)),
+                    ),
+                  ),
+                  style: TextStyle(
+                      fontSize: 14),
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                ),
+              ),
+            ),
+            Container(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(),
+                ),
+                Flexible(
+                  flex: 40,
+                  child: Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('비밀번호 확인',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Container(height: 5),
+            Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width*0.9,
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xffEDEDED),
+                    labelText: '비밀번호를 한 번 더 입력해주세요.',
+                    labelStyle: TextStyle(
+                        color: Color(0xffBDBDBD)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xffEDEDED)),
+                    ),
+                  ),
+                  style: TextStyle(
+                      fontSize: 14),
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
                 ),
               ),
             ),
           ],
         ),
-        Container(height: 5),
-        Center(
+        Container(
+          alignment: Alignment.bottomCenter,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width*0.9,
-            height: 50,
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color(0xffEDEDED),
-                labelText: '비밀번호를 입력해주세요.',
-                labelStyle: TextStyle(
-                    color: Color(0xffBDBDBD)
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffEDEDED)),
-                ),
-              ),
-              style: TextStyle(
-                  fontSize: 14),
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-            ),
-          ),
-        ),
-        Container(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Flexible(
-              flex: 1,
-              child: SizedBox(),
-            ),
-            Flexible(
-              flex: 40,
-              child: Align(
-                alignment: Alignment(-0.9,0.0),
-                child: Text('새 비밀번호',
+              width:double.infinity,
+              height: 73,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Color(0xff6744F2)),
+                child: const Text('변경',
                   style: TextStyle(
-                      fontSize: 16
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
                   ),
                 ),
-              ),
-            ),
-          ],
-        ),
-        Container(height: 5),
-        Center(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width*0.9,
-            height: 50,
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color(0xffEDEDED),
-                labelText: '새로운 비밀번호를 입력해주세요.',
-                labelStyle: TextStyle(
-                    color: Color(0xffBDBDBD)
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffEDEDED)),
-                ),
-              ),
-              style: TextStyle(
-                  fontSize: 14),
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-            ),
-          ),
-        ),
-        Container(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Flexible(
-              flex: 1,
-              child: SizedBox(),
-            ),
-            Flexible(
-              flex: 40,
-              child: Align(
-                alignment: Alignment(-0.9,0.0),
-                child: Text('비밀번호 확인',
-                  style: TextStyle(
-                      fontSize: 16
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Container(height: 5),
-        Center(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width*0.9,
-            height: 50,
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color(0xffEDEDED),
-                labelText: '비밀번호를 한 번 더 입력해주세요.',
-                labelStyle: TextStyle(
-                    color: Color(0xffBDBDBD)
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffEDEDED)),
-                ),
-              ),
-              style: TextStyle(
-                  fontSize: 14),
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-            ),
+                onPressed: (){
+                  //Navigator.push(
+                  //  context,
+                  //  MaterialPageRoute(builder: (context)=>Celebration()));
+                },
+              )
           ),
         ),
       ],
