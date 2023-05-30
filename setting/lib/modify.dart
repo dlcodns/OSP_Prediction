@@ -14,20 +14,28 @@ class Modify extends StatelessWidget {
     return MaterialApp(
       title: 'modify',
       home: Scaffold(
-        backgroundColor: const Color(0xffE3DCFF),
+        backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
           toolbarHeight: 100,
-          elevation: 4,
+          elevation: 0,
           shadowColor: Color(0xffE6E6E6),
-          backgroundColor: Color(0xffE3DCFF),
+          backgroundColor: Color(0xffFFFFFF),
           title: Padding(
             padding: EdgeInsets.only(right:12.0,top:43),
             child: Row(
-              children: const [
-                Icon(Icons.settings, color: Color(0xff404040), size: 30,              ),
-                Text('  설정',
+              children:  [
+                IconButton(
+                    iconSize: 30,
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context)=>Setting()));
+                    },
+                    icon: Icon(Icons.arrow_back_ios,color: Color(0xff404040),)
+                ),
+                Text('  회원 정보 수정',
                   style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 28,
                       color: Color(0xff404040),
                       fontWeight: FontWeight.bold
                   ),)
@@ -38,7 +46,7 @@ class Modify extends StatelessWidget {
         body: HomeApp(),
       ),
     );
-  }
+    }
 }
 
 class HomeApp extends StatelessWidget{
