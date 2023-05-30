@@ -113,7 +113,9 @@ class HomeApp extends StatelessWidget {
             height: 45,
             child: ElevatedButton(
               onPressed: () {
-                //회원정보수정
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context)=>Modify()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xffE3DCFF),
