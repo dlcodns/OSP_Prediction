@@ -138,7 +138,60 @@ class Main extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-           
+            child: Padding(
+              padding: EdgeInsets.only(left: 40, right: 40),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xffF4F1FF),
+                ),
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '의상 이미지 업로드',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Color(0xff404040),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: TextButton(
+                                onPressed: () {
+                                  // Handle the button press
+                                },
+                                child: Image.asset(
+                                  'assets/upload.png',
+                                  width: 60,
+                                  height: 60,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
           Expanded(
             flex: 2,
@@ -147,12 +200,12 @@ class Main extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 135, right: 135),
             child: ElevatedButton(
-              
+            
             ),
           ),
           Expanded(
             flex: 6,
-           
+       
           ),
           Expanded(
             flex: 4,
