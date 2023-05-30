@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
+        return MaterialApp(
       title: 'modify',
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
                     },
                     icon: Icon(Icons.arrow_back_ios,color: Color(0xff404040),)
                 ),
-                Text('  회원 정보 수정',
+                Text('회원 정보 수정',
                   style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 24,
                       color: Color(0xff404040),
                       fontWeight: FontWeight.bold
                   ),)
