@@ -1,3 +1,4 @@
+//result 페이지입니다
 import 'package:flutter/material.dart';
 
 void main() {
