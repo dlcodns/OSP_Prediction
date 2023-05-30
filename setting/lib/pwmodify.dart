@@ -73,7 +73,12 @@ class _HomeAppState extends State<HomeApp> {
     setState(() {
       _passwordMismatch = (currentPassword != storedPassword);
       _newpasswordMismatch = (confirmPassword != newPassword);
-    });
+
+      //if (!_passwordMismatch && !_newpasswordMismatch) {
+      //  storedPassword = newPassword;
+      //}
+      }
+    );
   }
   @override
   Widget build(BuildContext context){
