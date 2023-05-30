@@ -86,12 +86,18 @@ class HomeApp extends StatelessWidget{
                 filled: true,
                 fillColor: Color(0xffEDEDED),
                 labelText: '비밀번호를 입력해주세요.',
+                labelStyle: TextStyle(
+                    color: Color(0xffBDBDBD)
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xffEDEDED)),
                 ),
               ),
               style: TextStyle(
                   fontSize: 14),
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
             ),
           ),
         ),
@@ -126,12 +132,18 @@ class HomeApp extends StatelessWidget{
                 filled: true,
                 fillColor: Color(0xffEDEDED),
                 labelText: '새로운 비밀번호를 입력해주세요.',
+                labelStyle: TextStyle(
+                    color: Color(0xffBDBDBD)
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xffEDEDED)),
                 ),
               ),
               style: TextStyle(
                   fontSize: 14),
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
             ),
           ),
         ),
@@ -166,12 +178,18 @@ class HomeApp extends StatelessWidget{
                 filled: true,
                 fillColor: Color(0xffEDEDED),
                 labelText: '비밀번호를 한 번 더 입력해주세요.',
+                labelStyle: TextStyle(
+                    color: Color(0xffBDBDBD)
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xffEDEDED)),
                 ),
               ),
               style: TextStyle(
                   fontSize: 14),
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
             ),
           ),
         ),
