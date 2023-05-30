@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 120,
           backgroundColor: const Color(0xffE3DCFF),
           elevation: 0,
           title: Row(
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 30.0, top: 50),
                 child: Image.asset(
                   'assets/logo.png',
-                  width: 184,
-                  height: 36,
+                  width: 220,
+                  height: 44,
                 ),
               ),
               const Spacer(),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   icon: const Icon(
                     Icons.settings_backup_restore,
                     color: Color(0xff404040),
-                    size: 30,
+                    size: 35,
                   ),
                   onPressed: () {
 
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                   icon: const Icon(
                     Icons.person,
                     color: Color(0xff404040),
-                    size: 30,
+                    size: 35,
                   ),
                   onPressed: () {
 
@@ -57,6 +57,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        body: Main(),
       ),
     );
   }
