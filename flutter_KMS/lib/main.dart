@@ -94,13 +94,24 @@ class Main extends StatelessWidget {
                             flex: 3,
                             child: Align(
                               alignment: Alignment.center,
-                              child: Text(
-                                '신체 이미지 업로드',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Color(0xff404040),
-                                ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '신체 이미지 업로드',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Color(0xff404040),
+                                    ),
+                                  ),
+                                  Text(
+                                     '저장된 이미지 불러오기',
+                                     style: TextStyle(
+                                       fontSize: 14,
+                                       color: Color(0xff587CFF),
+                                     ),
+                                   ),
+                                ],
                               ),
                             ),
                           ),
