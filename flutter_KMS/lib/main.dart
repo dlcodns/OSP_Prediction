@@ -95,6 +95,7 @@ class Main extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.center,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     '신체 이미지 업로드',
@@ -104,13 +105,18 @@ class Main extends StatelessWidget {
                                       color: Color(0xff404040),
                                     ),
                                   ),
-                                  Text(
-                                     '저장된 이미지 불러오기',
-                                     style: TextStyle(
-                                       fontSize: 14,
-                                       color: Color(0xff587CFF),
-                                     ),
-                                   ),
+                                  TextButton(
+                                    onPressed: () {
+
+                                    },
+                                    child: Text(
+                                      '저장된 이미지 불러오기',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Color(0xff587CFF),
+                                      ),
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
