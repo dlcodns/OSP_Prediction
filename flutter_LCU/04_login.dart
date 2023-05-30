@@ -44,3 +44,92 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class HomeApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    var m = MediaQuery.of(context);
+    print("넓이 : ${m.size.width}");
+    print("높이 : ${m.size.height}");
+            return ListView(
+                  children: [
+                    Container(
+                      height: 60,
+                    ),
+                    Flexible(
+                      child: Column(
+                        children: [
+                        Center(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width*0.9,
+                            height: 50,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  labelText: '이메일 주소',
+                                  labelStyle: TextStyle(
+                                      color: Color(0xffBDBDBD)
+                                  ),
+                                  border: OutlineInputBorder()
+                              ),
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ),
+                        ),
+                          Container(height: 20),
+                          Center(
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width*0.9,
+                              height: 50,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    labelText: '비밀번호',
+                                    labelStyle: TextStyle(
+                                        color: Color(0xffBDBDBD)
+                                    ),
+                                    border: OutlineInputBorder()
+                                ),
+                                style: TextStyle(fontSize: 14),
+                                obscureText: true,
+                                enableSuggestions: false,
+                                autocorrect: false,
+                              ),
+                            ),
+                          ),
+                        ]
+                      ),
+                    ),
+                    Container(height: 35),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width*0.9,
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff6744F2)),
+                          child: const Text('로그인',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          onPressed: () {
+                            //celebration
+                          },
+                        )
+                      ),
+                    ),
+                    Container(height: 10),
+                    const Align(
+                      alignment: Alignment(0.84, -0.7),
+                      child: Text('이메일 찾기 | 비밀번호 찾기',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0xffAEAEAE)
+                        )
+                      )
+                    ),
+                        ]
+            );
+          }
+        }
