@@ -53,9 +53,9 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
-  TextEditingController _currentPasswordController = TextEditingController();
-  TextEditingController _newPasswordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _currentPasswordController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordMismatch = false;
   bool _newpasswordMismatch = false;
 
@@ -109,7 +109,7 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ],
               ),
-              Container(height: 5),
+              Container(height: 10),
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width*0.9,
@@ -154,7 +154,7 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ],
               ),
-              Container(height: 5),
+              Container(height: 10),
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width*0.9,
@@ -198,7 +198,7 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ],
               ),
-              Container(height: 5),
+              Container(height: 10),
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width*0.9,
@@ -239,10 +239,12 @@ class _HomeAppState extends State<HomeApp> {
                 onPressed: () {
                   _checkPassword();
                   if (!_passwordMismatch||!_newpasswordMismatch) {
-                    // 비밀번호가 일치하면 다음 페이지로 이동
+                    // 비밀번호가 일치하면
+                    // storedPassword = newPassword; 하고
+                    // 다음 페이지로 이동
                     // Navigator.push(
                     //  context,
-                    //  MaterialPageRoute(builder: (context)=>Celebration()));
+                    //  MaterialPageRoute(builder: (context)=>Setting()));
                   }
                 },
               )
