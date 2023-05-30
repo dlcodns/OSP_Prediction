@@ -229,7 +229,19 @@ class Main extends StatelessWidget {
           ),
           Expanded(
             flex: 6,
-           
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Text(
+                  '* 신체 이미지는 정면을 제공해 주세요.\n* 신체를 크게 가리는 의상은 결과가 명확하지 않을 수 있습니다.\n* 의상은 구김이 적고 정확하게 표현된 사진을 제공해 주세요.\n* 의상 이미지 배경이 이미지 색과 유사하면 인식이 어려울 수 있습니다.',
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Color(0xff606060),
+                  ),
+                ),
+              ),
+            ),
           ),
           Expanded(
             flex: 4,
