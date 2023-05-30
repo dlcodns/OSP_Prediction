@@ -39,5 +39,23 @@ class HomeApp extends StatelessWidget{
     var m = MediaQuery.of(context);
     print("넓이 : ${m.size.width}");
     print("높이 : ${m.size.height}");
+    return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children:[
+                  SizedBox(width: MediaQuery.of(context).size.width*0.02),
+                  IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: (){
+                        //home
+                      },
+                      icon: const Icon(Icons.keyboard_backspace,
+                        color: Color(0xffFFFFFF),
+                        size: 40
+                      )
+                  ),
+                ]
+              ),
   }
 }
