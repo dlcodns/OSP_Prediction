@@ -71,7 +71,36 @@ class Main extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-         
+          Expanded(
+            flex: 3,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 5,
+          ),
+          Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 5,
+          ),
+          Expanded(
+            flex: 2,
+            child: SizedBox(),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 135, right: 135),
+            child: ElevatedButton(
+            ),
+          ),
+          Expanded(
+            flex: 6,
+          ),
+          Expanded(
+            flex: 4,
+            child: SizedBox(),
+          ),
         ],
       ),
     );
