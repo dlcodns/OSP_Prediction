@@ -62,3 +62,12 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
+class Main extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+    );
+  }
+}
