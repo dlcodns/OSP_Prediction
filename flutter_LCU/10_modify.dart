@@ -4,6 +4,11 @@ void main() {
   runApp(const MyApp());  //앱 시작해주세요!, MyApp(메인페이지 주소)
 }
 
+class AlwaysDisabledFocusNode extends FocusNode {
+  @override
+  bool get hasFocus => false;
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
@@ -116,6 +121,8 @@ class HomeApp extends StatelessWidget{
             width: MediaQuery.of(context).size.width*0.9,
             height: MediaQuery.of(context).size.height*0.1,
             child: TextField(
+              enableInteractiveSelection: false,
+              focusNode: AlwaysDisabledFocusNode(),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Color(0xffEDEDED),
