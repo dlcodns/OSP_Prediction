@@ -85,7 +85,7 @@ class HomeApp extends StatelessWidget{
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Color(0xffEDEDED),
-                labelText: '',
+                labelText: '비밀번호를 입력해주세요.',
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xffEDEDED)),
                 ),
@@ -107,7 +107,7 @@ class HomeApp extends StatelessWidget{
               flex: 40,
               child: Align(
                 alignment: Alignment(-0.9,0.0),
-                child: Text('이름',
+                child: Text('새 비밀번호',
                   style: TextStyle(
                       fontSize: 16
                   ),
@@ -125,7 +125,7 @@ class HomeApp extends StatelessWidget{
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Color(0xffEDEDED),
-                labelText: '이름 db 불러오기',
+                labelText: '새로운 비밀번호를 입력해주세요.',
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Color(0xffEDEDED)),
                 ),
@@ -135,7 +135,46 @@ class HomeApp extends StatelessWidget{
             ),
           ),
         ),
-        Container(height: 10),
+        Container(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Flexible(
+              flex: 1,
+              child: SizedBox(),
+            ),
+            Flexible(
+              flex: 40,
+              child: Align(
+                alignment: Alignment(-0.9,0.0),
+                child: Text('비밀번호 확인',
+                  style: TextStyle(
+                      fontSize: 16
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Container(height: 5),
+        Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width*0.9,
+            height: 50,
+            child: TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Color(0xffEDEDED),
+                labelText: '비밀번호를 한 번 더 입력해주세요.',
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xffEDEDED)),
+                ),
+              ),
+              style: TextStyle(
+                  fontSize: 14),
+            ),
+          ),
+        ),
       ],
     );
   }
