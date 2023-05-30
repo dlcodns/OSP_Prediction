@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
           toolbarHeight: 100,
-          elevation: 0,
+          elevation: 4,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffFFFFFF),
           title: Padding(
@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
                 IconButton(
                     iconSize: 30,
                     onPressed: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context)=>Setting()));
+                      //Navigator.push(
+                      //    context,
+                      //    MaterialPageRoute(builder: (context)=>Setting()));
                     },
                     icon: Icon(Icons.arrow_back_ios,color: Color(0xff404040),)
                 ),
@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
         ),
         body: HomeApp(),
       ),
+    );
   }
 }
 
