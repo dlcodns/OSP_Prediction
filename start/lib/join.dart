@@ -422,7 +422,7 @@ class _HomeAppState extends State<HomeApp> {
                   _validateEmail();
                   _validatePassword();
                   _checkPassword();
-                  if (!_invalidEmailFormat && !_emailNotStored && !_newpasswordMismatch && _isAllTermsChecked()) {
+                  if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_newpasswordMismatch && _isAllTermsChecked()) {
                      //비밀번호가 일치하면 다음 페이지로 이동
                     Navigator.push(
                       context,
