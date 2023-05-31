@@ -73,6 +73,16 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
   String? selectedImagePath = null;
   
+  Future<String?> pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      return pickedFile.path;
+    }
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
