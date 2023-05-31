@@ -60,8 +60,9 @@ class _HomeAppState extends State<HomeApp> {
 
   bool _newpasswordMismatch = false;
   bool _invalidEmailFormat = false;
+  bool _invalidPasswordFormat = false;
   bool _emailNotStored = false;
-  bool _agreeTermsError = false;
+  //bool _agreeTermsError = false;
 
   bool _isTermsChecked1 = false;
   bool _isTermsChecked2 = false;
@@ -96,6 +97,17 @@ class _HomeAppState extends State<HomeApp> {
     setState(() {
       _invalidEmailFormat = !regex.hasMatch(email);
       _emailNotStored = _emailExistsInDatabase(email); // 이메일이 DB에 존재하지 않을 경우
+    });
+  }
+
+  void _validatePassword() {
+    String password = _newPasswordController.text;
+    // 정규식을 사용하여 이메일 형식을 검증하는 패턴
+    String pattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$';
+    RegExp regex = RegExp(pattern);
+
+    setState(() {
+      _invalidPasswordFormat = !regex.hasMatch(password);
     });
   }
 
@@ -169,7 +181,9 @@ class _HomeAppState extends State<HomeApp> {
                           labelStyle: TextStyle(
                               color: Color(0xffBDBDBD)
                           ),
-                          border: OutlineInputBorder()
+                          border: OutlineInputBorder(),
+                        errorText: _invalidPasswordFormat
+                            ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
                       ),
                       style: TextStyle(fontSize: 14),
                       obscureText: true,
@@ -229,7 +243,7 @@ class _HomeAppState extends State<HomeApp> {
                           labelStyle: TextStyle(
                               color: Color(0xffBDBDBD)
                           ),
-                          border: OutlineInputBorder()
+                          border: OutlineInputBorder(),
                       ),
                       style: TextStyle(fontSize: 14),
                     ),
@@ -245,7 +259,7 @@ class _HomeAppState extends State<HomeApp> {
                           onChanged: (value) {
                             setState(() {
                               _isTermsChecked1 = value!;
-                              _agreeTermsError = !_isAllTermsChecked();
+                              //_agreeTermsError = !_isAllTermsChecked();
                             });
                           },
                         ),
@@ -278,7 +292,7 @@ class _HomeAppState extends State<HomeApp> {
                           onChanged: (value) {
                             setState(() {
                               _isTermsChecked2 = value!;
-                              _agreeTermsError = !_isAllTermsChecked();
+                              //_agreeTermsError = !_isAllTermsChecked();
                             });
                           },
                         ),
@@ -311,7 +325,7 @@ class _HomeAppState extends State<HomeApp> {
                           onChanged: (value) {
                             setState(() {
                               _isTermsChecked3 = value!;
-                              _agreeTermsError = !_isAllTermsChecked();
+                              //_agreeTermsError = !_isAllTermsChecked();
                             });
                           },
                         ),
@@ -376,7 +390,7 @@ class _HomeAppState extends State<HomeApp> {
                           onChanged: (value) {
                             setState(() {
                               _isTermsChecked4 = value!;
-                              _agreeTermsError = !_isAllTermsChecked();
+                              //_agreeTermsError = !_isAllTermsChecked();
                             });
                           },
                         ),
@@ -387,12 +401,6 @@ class _HomeAppState extends State<HomeApp> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
-                    if (_agreeTermsError)
-                      Text(
-                        '모든 약관에 동의해야 합니다.',
-                        style: TextStyle(fontSize: 12, color: Colors.red),
-                      ),
                   ],
                 ),
               ]
@@ -413,6 +421,7 @@ class _HomeAppState extends State<HomeApp> {
                 ),
                 onPressed: (){
                   _validateEmail();
+                  _validatePassword();
                   _checkPassword();
                   if (!_invalidEmailFormat && !_emailNotStored && !_newpasswordMismatch && _isAllTermsChecked()) {
                     // 비밀번호가 일치하면 다음 페이지로 이동
