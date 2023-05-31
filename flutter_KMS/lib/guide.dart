@@ -53,7 +53,7 @@ class _GuideState extends State<Guide> {
         text: '‘Fitting Room’', style: TextStyle(color: Color(0xff6744F2)),
       ),
       TextSpan(
-        text: ' 고객의 신체 이미지와\n 의상의 이미지를 매칭하여 가상 피팅을\n 제공하는 앱 서비스 입니다.',
+        text: ' 고객의 신체 이미지와\n 의상의 이미지를 매칭하여 가상 피팅을\n 제공하는 앱 서비스 입니다.', style: TextStyle(color: Colors.black,)
       )
     ],
     [
@@ -61,7 +61,7 @@ class _GuideState extends State<Guide> {
         text: 'step 1. ', style: TextStyle(color: Color(0xff6744F2)),
       ),
       TextSpan(
-        text: '\n고객님의 신체 이미지를 저장하여\n 신체 정보를 제공해 주세요! ',
+        text: '\n고객님의 신체 이미지를 저장하여\n 신체 정보를 제공해 주세요!', style: TextStyle(color: Colors.black, )
       ),
     ],
     [
@@ -69,7 +69,7 @@ class _GuideState extends State<Guide> {
         text: 'step 2. ', style: TextStyle(color: Color(0xff6744F2)),
       ),
       TextSpan(
-        text: '\n착장하고 싶은 의상의 이미지를\n 업로드해 주세요! ',
+        text: '\n착장하고 싶은 의상의 이미지를\n 업로드해 주세요!', style: TextStyle(color: Colors.black, )
       ),
     ],
     [
@@ -77,13 +77,12 @@ class _GuideState extends State<Guide> {
         text: 'step 3. ', style: TextStyle(color: Color(0xff6744F2)),
       ),
       TextSpan(
-        text: '\n의상과 고객님의 신체 정보를 조합하여\n 피팅된 이미지를 제공합니다. ',
+        text: '\n의상과 고객님의 신체 정보를 조합하여\n 피팅된 이미지를 제공합니다.', style: TextStyle(color: Colors.black, )
       ),
     ],
     [
       TextSpan(
-        text: '\nFitting Room을 이용하여\n 지금 바로 착장해 보세요!',
-        style: TextStyle(fontSize: 30),
+        text: '\nFitting Room을 이용하여\n 지금 바로 착장해 보세요!', style: TextStyle(fontSize: 30, color: Colors.black, )
       ),
     ],
   ];
@@ -97,13 +96,13 @@ class _GuideState extends State<Guide> {
         children: [
           Container(
             child: AppBar(
-              toolbarHeight: 120,
+              toolbarHeight: 100,
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 30.0, top: 53),
+                    padding: const EdgeInsets.only(left: 20.0, top: 30),
                     child: Image.asset(
                       'assets/logo.png',
                       width: 220,
@@ -112,7 +111,7 @@ class _GuideState extends State<Guide> {
                   ),
                   const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 12.0, top: 45),
+                    padding: const EdgeInsets.only(right: 0.0, top: 30),
                     child: IconButton(
                       icon: const Icon(
                         Icons.settings_backup_restore,
@@ -125,7 +124,7 @@ class _GuideState extends State<Guide> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 30.0, top: 45),
+                    padding: const EdgeInsets.only(right: 5.0, top: 30),
                     child: IconButton(
                       icon: const Icon(
                         Icons.person,
