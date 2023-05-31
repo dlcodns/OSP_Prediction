@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(const MainPage());
@@ -63,7 +64,15 @@ class MainPage extends StatelessWidget {
   }
 }
 
-class Main extends StatelessWidget {
+class Main extends StatefulWidget {
+  @override
+  _MainState createState() => _MainState();
+}
+
+
+class _MainState extends State<Main> {
+  String? selectedImagePath = null;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
