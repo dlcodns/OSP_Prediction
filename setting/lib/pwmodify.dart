@@ -240,7 +240,7 @@ class _HomeAppState extends State<HomeApp> {
                 ),
                 onPressed: () {
                   _checkPassword();
-                  if (!_passwordMismatch||!_newpasswordMismatch) {
+                  if (!_passwordMismatch&&!_newpasswordMismatch) {
                     // 비밀번호가 일치하면
                     // storedPassword = newPassword; 하고
                     // 다음 페이지로 이동
