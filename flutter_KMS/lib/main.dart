@@ -14,13 +14,13 @@ class MainPage extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
-          toolbarHeight: 120,
+          toolbarHeight: 100,
           backgroundColor: const Color(0xffE3DCFF),
           elevation: 0,
           title: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, top: 50),
+                padding: const EdgeInsets.only(left: 20.0, top: 30),
                 child: Image.asset(
                   'assets/logo.png',
                   width: 220,
@@ -29,7 +29,7 @@ class MainPage extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsets.only(right: 12.0, top: 45),
+                padding: const EdgeInsets.only(right: 0.0, top: 30),
                 child: IconButton(
                   icon: const Icon(
                     Icons.settings_backup_restore,
@@ -42,7 +42,7 @@ class MainPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 30.0, top: 45),
+                padding: const EdgeInsets.only(right: 5.0, top: 30),
                 child: IconButton(
                   icon: const Icon(
                     Icons.person,
@@ -95,17 +95,22 @@ class Main extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.center,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
                                     '신체 이미지 업로드',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
+                                      height: 0.001,
                                       color: Color(0xff404040),
                                     ),
                                   ),
                                   TextButton(
+                                    style: TextButton.styleFrom(
+                                      padding: EdgeInsets.only(top: 0, bottom: 0),
+                                      minimumSize: Size(0, 0),
+                                    ),
                                     onPressed: () {
 
                                     },
@@ -113,6 +118,7 @@ class Main extends StatelessWidget {
                                       '저장된 이미지 불러오기',
                                       style: TextStyle(
                                         fontSize: 14,
+                                        height: 0.7,
                                         color: Color(0xff587CFF),
                                       ),
                                     ),
@@ -226,10 +232,7 @@ class Main extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                   vertical: 15.0,
-                  horizontal: 32.0,
-                ),
-                textStyle: TextStyle(
-                  fontSize: 30.0,
+                  horizontal: 20.0,
                 ),
                 backgroundColor: Color(0xff8C72F6),
                 shape: RoundedRectangleBorder(
@@ -240,6 +243,7 @@ class Main extends StatelessWidget {
                 'Fitting',
                 style: TextStyle(
                   color: Colors.white,
+                  fontSize: 28.0,
                 ),
               ),
             ),
