@@ -81,6 +81,13 @@ class _MainState extends State<Main> {
       return pickedFile.path;
     }
   }
+  
+  String getFileName(String? path) {
+    if (path == null) {
+      return '';
+    }
+    return path.split('/').last;
+  }
 
   
   @override
