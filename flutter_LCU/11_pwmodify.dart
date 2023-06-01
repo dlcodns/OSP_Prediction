@@ -58,6 +58,7 @@ class _HomeAppState extends State<HomeApp> {
   final TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordMismatch = false;
   bool _newpasswordMismatch = false;
+  bool _invalidPasswordFormat = false;
 
   @override
   void dispose() {
@@ -71,11 +72,21 @@ class _HomeAppState extends State<HomeApp> {
     String currentPassword = _currentPasswordController.text;
     String newPassword = _newPasswordController.text;
     String confirmPassword = _confirmPasswordController.text;
-    String storedPassword = 'password'; // DB에서 가져온 비밀번호 (임시 예시)
+    String storedPassword = 'password1'; // DB에서 가져온 비밀번호 (임시 예시)
 
     setState(() {
       _passwordMismatch = (currentPassword != storedPassword);
       _newpasswordMismatch = (confirmPassword != newPassword);
+    });
+  }
+  void _validatePassword() {
+    String password = _newPasswordController.text;
+    // 정규식을 사용하여 이메일 형식을 검증하는 패턴
+    String pattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$';
+    RegExp regex = RegExp(pattern);
+
+    setState(() {
+      _invalidPasswordFormat = !regex.hasMatch(password);
     });
   }
   @override
@@ -169,6 +180,8 @@ class _HomeAppState extends State<HomeApp> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xffEDEDED)),
                       ),
+                        errorText: _invalidPasswordFormat
+                            ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
                     ),
                     style: TextStyle(fontSize: 14),
                     obscureText: true,
@@ -237,8 +250,9 @@ class _HomeAppState extends State<HomeApp> {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
+                  _validatePassword();
                   _checkPassword();
-                  if (!_passwordMismatch&&!_newpasswordMismatch) {
+                  if (!_passwordMismatch&&!_newpasswordMismatch && !_invalidPasswordFormat) {
                     // 비밀번호가 일치하면
                     // storedPassword = newPassword; 하고
                     // 다음 페이지로 이동
