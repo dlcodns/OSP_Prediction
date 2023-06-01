@@ -236,8 +236,11 @@ class _MainState extends State<Main> {
                             child: Align(
                               alignment: Alignment.center,
                               child: TextButton(
-                                onPressed: () {
-                                  // Handle the button press
+                                onPressed: () async {
+                                  final imagePath = await pickImage();
+                                  setState(() {
+                                    selectedClothesImagePath = imagePath!;
+                                  });
                                 },
                                 child: Image.asset(
                                   'assets/upload.png',
