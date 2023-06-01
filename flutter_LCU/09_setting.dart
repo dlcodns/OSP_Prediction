@@ -579,11 +579,10 @@ class _HomeAppState extends State<HomeApp> {
                                                     onPressed: () {
                                                       _checkPassword();
                                                       if (!_passwordMismatch){
-                                                        Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(builder: (context)=>Modify()));
+                                                        //Navigator.push(
+                                                         // context,
+                                                         // MaterialPageRoute(builder: (context)=>StartSelect()));
                                                       }
-                                                      //start_select 페이지 이동
                                                     },
                                                   ),
                                                 ),
