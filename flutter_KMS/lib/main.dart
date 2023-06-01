@@ -69,10 +69,10 @@ class Main extends StatefulWidget {
   _MainState createState() => _MainState();
 }
 
-
 class _MainState extends State<Main> {
-  String? selectedImagePath = null;
-  
+  String? selectedBodyImagePath = null;
+  String? selectedClothesImagePath = null;
+
   Future<String?> pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -81,7 +81,7 @@ class _MainState extends State<Main> {
       return pickedFile.path;
     }
   }
-  
+
   String getFileName(String? path) {
     if (path == null) {
       return '';
@@ -89,7 +89,6 @@ class _MainState extends State<Main> {
     return path.split('/').last;
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,7 +160,7 @@ class _MainState extends State<Main> {
                                 onPressed: () async {
                                   final imagePath = await pickImage();
                                   setState(() {
-                                    selectedImagePath = imagePath!;
+                                    selectedBodyImagePath = imagePath!;
                                   });
                                 },
                                 child: Image.asset(
@@ -177,13 +176,13 @@ class _MainState extends State<Main> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: selectedImagePath != null
+                      child: selectedBodyImagePath != null
                           ? Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            '${getFileName(selectedImagePath)}',
+                            '${getFileName(selectedBodyImagePath)}',
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
