@@ -87,7 +87,7 @@ class _HomeAppState extends State<HomeApp> {
 
   bool _emailExistsInDatabase(String email) {
     // 여기서 실제로 DB에 이메일이 존재하는지 확인하는 로직을 구현해야 합니다.
-    // 일단 'test@example.com' 이 존재하는 것으로 가정
+    // 이 예제에서는 임의로 'test@example.com' 이 존재하는 것으로 가정합니다.
     return email == 'test@example.com';
   }
 
@@ -178,7 +178,7 @@ class _HomeAppState extends State<HomeApp> {
                   // 비밀번호가 일치하면 다음 페이지로 이동
                   // Navigator.push(
                   //   context,
-                  //   MaterialPageRoute(builder: (context) => Celebration()),
+                  //   MaterialPageRoute(builder: (context) => 메인페이지()),
                   // );
                 }
               },

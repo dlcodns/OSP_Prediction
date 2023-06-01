@@ -53,11 +53,11 @@ class HomeApp extends StatefulWidget {
 
 class _HomeAppState extends State<HomeApp> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _PasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
-  bool _newpasswordMismatch = false;
+  bool _passwordMismatch = false;
   bool _invalidEmailFormat = false;
   bool _invalidPasswordFormat = false;
   bool _emailNotStored = false;
@@ -72,18 +72,18 @@ class _HomeAppState extends State<HomeApp> {
   @override
   void dispose() {
     _emailController.dispose();
-    _newPasswordController.dispose();
+    _PasswordController.dispose();
     _confirmPasswordController.dispose();
     _nameController.dispose();
     super.dispose();
   }
 
   void _checkPassword() {
-    String newPassword = _newPasswordController.text;
+    String Password = _PasswordController.text;
     String confirmPassword = _confirmPasswordController.text;
 
     setState(() {
-      _newpasswordMismatch = (confirmPassword != newPassword);
+      _passwordMismatch = (confirmPassword != Password);
     });
   }
 
@@ -100,7 +100,7 @@ class _HomeAppState extends State<HomeApp> {
   }
 
   void _validatePassword() {
-    String password = _newPasswordController.text;
+    String password = _PasswordController.text;
     // 정규식을 사용하여 이메일 형식을 검증하는 패턴
     String pattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$';
     RegExp regex = RegExp(pattern);
@@ -174,7 +174,7 @@ class _HomeAppState extends State<HomeApp> {
                     width: MediaQuery.of(context).size.width*0.9,
                     height: 50,
                     child: TextField(
-                      controller: _newPasswordController,
+                      controller: _PasswordController,
                       decoration: InputDecoration(
                           labelText: '영문, 숫자 조합 8~16자',
                           labelStyle: TextStyle(
@@ -213,7 +213,7 @@ class _HomeAppState extends State<HomeApp> {
                             color: Color(0xffBDBDBD)
                         ),
                         border: OutlineInputBorder(),
-                        errorText: _newpasswordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                        errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
                       ),
                       style: TextStyle(fontSize: 14),
                       obscureText: true,
@@ -422,7 +422,7 @@ class _HomeAppState extends State<HomeApp> {
                   _validateEmail();
                   _validatePassword();
                   _checkPassword();
-                  if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_newpasswordMismatch && _isAllTermsChecked()) {
+                  if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_passwordMismatch && _isAllTermsChecked()) {
                      //비밀번호가 일치하면 다음 페이지로 이동
                     Navigator.push(
                       context,

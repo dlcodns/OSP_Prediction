@@ -58,7 +58,7 @@ class _HomeAppState extends State<HomeApp> {
 
   void _checkPassword() {
     String currentPassword = _currentPasswordController.text;
-    String storedPassword = 'password'; // DB에서 가져온 비밀번호 (임시 예시)
+    String storedPassword = 'password1'; // DB에서 가져온 비밀번호 (임시 예시)
 
     setState(() {
       _passwordMismatch = (currentPassword != storedPassword);
