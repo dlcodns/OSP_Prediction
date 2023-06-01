@@ -255,7 +255,21 @@ class _MainState extends State<Main> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: SizedBox(),
+                      child: selectedClothesImagePath != null
+                          ? Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            '${getFileName(selectedClothesImagePath)}',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      )
+                          : SizedBox(),
                     ),
                   ],
                 ),
