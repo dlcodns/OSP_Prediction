@@ -106,6 +106,39 @@ class _MyPage extends State<My> {
                       ),
                     ),
                   ),
+                  Expanded(
+                    flex: 10,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child:Container(
+                        width: 110,
+                        height: 110,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xffF1EEFF),
+                        ),
+                        child: Icon(
+                          Icons.person,
+                          color: Color(0xffB2ADC6),
+                          size: 90,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex:4,
+                    child :Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        '김두루미님',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff404040),
+                        ),
+                      ),
+                    )
+                  ),
                 ],
               ),
             ),
