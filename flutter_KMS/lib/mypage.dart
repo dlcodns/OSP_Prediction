@@ -39,3 +39,12 @@ class MyPage extends StatelessWidget {
     );
   }
 }
+
+class My extends StatefulWidget {
+  @override
+  _MyPage createState() => _MyPage();
+}
+
+class _MyPage extends State<My> {
+  
+}
