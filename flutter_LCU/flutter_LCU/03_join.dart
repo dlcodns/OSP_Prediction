@@ -14,12 +14,12 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 60,
           elevation: 0,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffFFFFFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:43),
+            padding: EdgeInsets.only(right:12.0,top:30),
             child: Row(
               children:  [
                 IconButton(
