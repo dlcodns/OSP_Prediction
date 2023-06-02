@@ -46,5 +46,22 @@ class My extends StatefulWidget {
 }
 
 class _MyPage extends State<My> {
-  
+  String? selectedMyImagePath = null;
+
+  Future<String?> pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      return pickedFile.path;
+    }
+  }
+
+  String getFileName(String? path) {
+    if (path == null) {
+      return '';
+    }
+    return path.split('/').last;
+  }
+
 }
