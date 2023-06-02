@@ -178,19 +178,44 @@ class _MainState extends State<Main> {
                       flex: 1,
                       child: selectedBodyImagePath != null
                           ? Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            '${getFileName(selectedBodyImagePath)}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffE3E1EC),
+                          ),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5.0, right: 3.0),
+                                child: Icon(
+                                  Icons.image,
+                                  color: Color(0xff587CFF),
+                                  size: 23,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  '${getFileName(selectedBodyImagePath)}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  setState(() {
+                                    selectedBodyImagePath = null;
+                                  });
+                                },
+                                icon: Icon(Icons.close, size: 20, color: Color(0xff587CFF)),
+                              ),
+                            ],
                           ),
                         ),
                       )
-                          : SizedBox(),
                     ),
                   ],
                 ),
@@ -256,15 +281,41 @@ class _MainState extends State<Main> {
                       flex: 1,
                       child: selectedClothesImagePath != null
                           ? Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            '${getFileName(selectedClothesImagePath)}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffE3E1EC),
+                          ),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5.0, right: 3.0),
+                                child: Icon(
+                                  Icons.image,
+                                  color: Color(0xff587CFF),
+                                  size: 23,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  '${getFileName(selectedClothesImagePath)}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  setState(() {
+                                    selectedClothesImagePath = null;
+                                  });
+                                },
+                                icon: Icon(Icons.close, size: 20, color: Color(0xff587CFF)),
+                              ),
+                            ],
                           ),
                         ),
                       )
