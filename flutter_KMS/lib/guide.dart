@@ -12,15 +12,28 @@ class MyGuide extends StatelessWidget {
       title: 'Guide',
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
-        body: Stack(
-          children: [
-            Positioned.fill(
-              child: Container(
-                color: const Color(0x40000000),
-              ),
-            ),
-            Guide(title: 'Guide'),
-          ],
+        body: Builder(
+          builder: (BuildContext context) {
+            final screenHeight = MediaQuery.of(context).size.height;
+            final screenWidth = MediaQuery.of(context).size.width;
+            return Stack(
+              children: [
+                Positioned.fill(
+                  child: Container(
+                    color: const Color(0x40000000),
+                  ),
+                ),
+                MediaQuery(
+                  data: MediaQuery.of(context),
+                  child: Guide(
+                    title: 'Guide',
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -29,8 +42,10 @@ class MyGuide extends StatelessWidget {
 
 class Guide extends StatefulWidget {
   final String title;
+  final double screenHeight;
+  final double screenWidth;
 
-  Guide({required this.title});
+  Guide({required this.title, required this.screenHeight, required this.screenWidth});
 
   @override
   _GuideState createState() => _GuideState();
@@ -50,7 +65,7 @@ class _GuideState extends State<Guide> {
   List<List<TextSpan>> pageTextSpans = [
     [
       TextSpan(
-        text: '‘Fitting Room’', style: TextStyle(color: Color(0xff6744F2)),
+        text: '\n‘Fitting Room’', style: TextStyle(color: Color(0xff6744F2)),
       ),
       TextSpan(
         text: ' 고객의 신체 이미지와\n 의상의 이미지를 매칭하여 가상 피팅을\n 제공하는 앱 서비스 입니다.', style: TextStyle(color: Colors.black,)
@@ -89,6 +104,9 @@ class _GuideState extends State<Guide> {
 
   @override
   Widget build(BuildContext context) {
+    final appBarHeight = widget.screenHeight * 0.1;
+    final tabItemSize = widget.screenWidth * 0.1;
+    final pageTextFontSize = widget.screenWidth * 0.055;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Column(
@@ -96,13 +114,17 @@ class _GuideState extends State<Guide> {
         children: [
           Container(
             child: AppBar(
-              toolbarHeight: 100,
+              toolbarHeight: appBarHeight,
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20.0, top: 30),
+                    padding: EdgeInsets.only(
+                      top: widget.screenHeight * 0.03,
+                      left: widget.screenWidth * 0.04,
+                      right: widget.screenWidth * 0.02,
+                    ),
                     child: Image.asset(
                       'assets/logo.png',
                       width: 220,
@@ -111,7 +133,10 @@ class _GuideState extends State<Guide> {
                   ),
                   const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 0.0, top: 30),
+                    padding: EdgeInsets.only(
+                      top: widget.screenHeight * 0.03,
+                      left: widget.screenWidth * 0.01,
+                    ),
                     child: IconButton(
                       icon: const Icon(
                         Icons.settings_backup_restore,
@@ -124,7 +149,11 @@ class _GuideState extends State<Guide> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 5.0, top: 30),
+                    padding: EdgeInsets.only(
+                      top: widget.screenHeight * 0.03,
+                      left: widget.screenWidth * 0.01,
+                      right: widget.screenWidth * 0.02,
+                    ),
                     child: IconButton(
                       icon: const Icon(
                         Icons.person,
@@ -160,11 +189,11 @@ class _GuideState extends State<Guide> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildTabItem(0, Icons.circle),
-                  _buildTabItem(1, Icons.circle),
-                  _buildTabItem(2, Icons.circle),
-                  _buildTabItem(3, Icons.circle),
-                  _buildTabItem(4, Icons.circle),
+                  _buildTabItem(0, Icons.circle, tabItemSize),
+                  _buildTabItem(1, Icons.circle, tabItemSize),
+                  _buildTabItem(2, Icons.circle, tabItemSize),
+                  _buildTabItem(3, Icons.circle, tabItemSize),
+                  _buildTabItem(4, Icons.circle, tabItemSize),
                 ],
               ),
             ),
@@ -178,76 +207,86 @@ class _GuideState extends State<Guide> {
                 ),
                 color: Colors.white,
               ),
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: 5,
-                onPageChanged: (int page) {
-                  setState(() {
-                    _currentPage = page;
-                  });
-                },
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 60.0, bottom: 50.0),
-                        child: Center(
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              children: pageTextSpans[index],
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                      if (index != 4)
-                        Expanded(
-                          child: SingleChildScrollView(
-                            physics: AlwaysScrollableScrollPhysics(),
-                            child: Container(
-                              padding: EdgeInsets.all(20),
-                              child: Image.asset(
-                                imagePaths[index],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (index == 4)
+              child: Center(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: 5,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
                         Container(
-                          padding: EdgeInsets.all(20),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => MainPage()),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 32.0,
-                              ),
-                              textStyle: TextStyle(
-                                fontSize: 24.0,
-                              ),
-                              backgroundColor: Color(0xff6744F2),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                            ),
-                            child: Text(
-                              'Start',
-                              style: TextStyle(
-                                color: Colors.white,
+                          padding: EdgeInsets.only(
+                            top: widget.screenHeight * 0.1,
+                          ),
+                          child: Center(
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                children: pageTextSpans[index],
+                                style: TextStyle(fontSize: pageTextFontSize),
                               ),
                             ),
                           ),
                         ),
-                    ],
-                  );
-                },
+                        if (index != 4)
+                          Expanded(
+                            child: Center(
+                              child: Container(
+                                padding: EdgeInsets.only(
+                                  bottom: widget.screenHeight * 0.2,
+                                ),
+                                child: Image.asset(
+                                  imagePaths[index],
+                                ),
+                              ),
+                            ),
+                          ),
+                        if (index == 4)
+                          Container(
+                            padding: EdgeInsets.only(
+                              top: widget.screenHeight * 0.15,
+                            ),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MainPage()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.only(
+                                  top: widget.screenWidth * 0.04,
+                                  bottom: widget.screenWidth * 0.04,
+                                  left: widget.screenWidth * 0.17,
+                                  right: widget.screenWidth * 0.17,
+                                ),
+                                textStyle: TextStyle(
+                                  fontSize: pageTextFontSize * 1.2,
+                                ),
+                                backgroundColor: Color(0xff6744F2),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                              child: Text(
+                                'Start',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    );
+                  },
+                ),
               ),
+
             ),
           ),
         ],
@@ -255,7 +294,7 @@ class _GuideState extends State<Guide> {
     );
   }
 
-  Widget _buildTabItem(int pageIndex, IconData icon) {
+  Widget _buildTabItem(int pageIndex, IconData icon, double size) {
     return GestureDetector(
       onTap: () {
         _pageController.animateToPage(
