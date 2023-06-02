@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local/mpage.dart';
 
-void main() {
-  runApp(MyGuide());
-}
-
 class MyGuide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

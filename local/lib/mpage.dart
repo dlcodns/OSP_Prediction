@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:local/review_1.dart';
 //import 'package:image_picker/image_picker.dart';
-
-void main() {
-  runApp(const MainPage());
-}
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -45,7 +42,9 @@ class MainPage extends StatelessWidget {
                     size: 35,
                   ),
                   onPressed: () {
-
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=>ReviewOne()));
                   },
                 ),
               ),
@@ -62,7 +61,9 @@ class MainPage extends StatelessWidget {
                     size: 35,
                   ),
                   onPressed: () {
-
+                    //Navigator.push(
+                    //    context,
+                    //    MaterialPageRoute(builder: (context)=>mypage()));
                   },
                 ),
               ),
@@ -84,14 +85,14 @@ class _MainState extends State<Main> {
   String? selectedBodyImagePath = null;
   String? selectedClothesImagePath = null;
 
-  Future<String?> pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      return pickedFile.path;
-    }
-  }
+  //Future<String?> pickImage() async {
+  //  final picker = ImagePicker();
+  //  final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+//
+  //  if (pickedFile != null) {
+  //    return pickedFile.path;
+  //  }
+  //}
 
   String getFileName(String? path) {
     if (path == null) {
@@ -170,9 +171,9 @@ class _MainState extends State<Main> {
                               alignment: Alignment.center,
                               child: TextButton(
                                 onPressed: () async {
-                                  final imagePath = await pickImage();
+                                  //final imagePath = await pickImage();
                                   setState(() {
-                                    selectedBodyImagePath = imagePath!;
+                                    //selectedBodyImagePath = imagePath!;
                                   });
                                 },
                                 child: Image.asset(
@@ -286,9 +287,9 @@ class _MainState extends State<Main> {
                               alignment: Alignment.center,
                               child: TextButton(
                                 onPressed: () async {
-                                  final imagePath = await pickImage();
+                                  //final imagePath = await pickImage();
                                   setState(() {
-                                    selectedClothesImagePath = imagePath!;
+                                    //selectedClothesImagePath = imagePath!;
                                   });
                                 },
                                 child: Image.asset(

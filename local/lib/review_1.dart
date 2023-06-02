@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local/review_2.dart';
-
-void main() {
-  runApp(const ReviewOne());  //앱 시작해주세요!, MyApp(메인페이지 주소)
-}
+import 'package:local/mpage.dart';
 
 class ReviewOne extends StatelessWidget {
   const ReviewOne({Key? key}) : super(key: key);
@@ -15,12 +12,12 @@ class ReviewOne extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 60,
           elevation: 4,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:43),
+            padding: EdgeInsets.only(right:12.0,top:30),
             child: Row(
               children: const [
                 Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30,              ),
@@ -59,7 +56,9 @@ class HomeApp extends StatelessWidget{
                     IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: (){
-                          //home
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>MainPage()));
                         },
                         icon: const Icon(Icons.keyboard_backspace,
                             color: Color(0xffFFFFFF),

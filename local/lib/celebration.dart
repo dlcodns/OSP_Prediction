@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import '메인페이지'
+import 'package:local/guide.dart';
 
 
 class Celebration extends StatelessWidget{
@@ -61,7 +61,9 @@ class HomeApp extends StatelessWidget{
                     backgroundColor: Color(0xffBDBDBD)
                 ),
                 onPressed: (){
-                  //메인페이지
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=>MyGuide()));
                 },
                 child: SizedBox(
                   width: double.infinity,

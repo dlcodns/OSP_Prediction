@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local/review_1.dart';
+import 'package:local/mpage.dart';
 
 class ReviewTwo extends StatelessWidget {
   const ReviewTwo({Key? key}) : super(key: key);
@@ -10,12 +11,12 @@ class ReviewTwo extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 60,
           elevation: 4,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:43),
+            padding: EdgeInsets.only(right:12.0,top:30),
             child: Row(
               children: const [
                 Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30,              ),
@@ -54,7 +55,9 @@ class HomeApp extends StatelessWidget{
                     IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: (){
-                          //home
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>MainPage()));
                         },
                         icon: const Icon(Icons.keyboard_backspace,
                             color: Color(0xffFFFFFF),
