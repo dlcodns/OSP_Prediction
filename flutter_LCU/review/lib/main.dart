@@ -16,7 +16,7 @@ class ReviewOne extends StatelessWidget {
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
           toolbarHeight: 60,
-          elevation: 0,
+          elevation: 4,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
           title: Padding(
