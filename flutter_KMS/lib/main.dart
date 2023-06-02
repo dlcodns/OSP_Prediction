@@ -15,13 +15,17 @@ class MainPage extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color(0xffE3DCFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: MediaQuery.of(context).size.height * 0.1,
           backgroundColor: const Color(0xffE3DCFF),
           elevation: 0,
           title: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 30),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.03,
+                  left: MediaQuery.of(context).size.width * 0.04,
+                  right: MediaQuery.of(context).size.width * 0.02,
+                ),
                 child: Image.asset(
                   'assets/logo.png',
                   width: 220,
@@ -30,7 +34,10 @@ class MainPage extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsets.only(right: 0.0, top: 30),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.03,
+                  left: MediaQuery.of(context).size.width * 0.01,
+                ),
                 child: IconButton(
                   icon: const Icon(
                     Icons.settings_backup_restore,
@@ -43,7 +50,11 @@ class MainPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 5.0, top: 30),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.03,
+                  left: MediaQuery.of(context).size.width * 0.01,
+                  right: MediaQuery.of(context).size.width * 0.02,
+                ),
                 child: IconButton(
                   icon: const Icon(
                     Icons.person,
@@ -97,13 +108,16 @@ class _MainState extends State<Main> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: SizedBox(),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Padding(
-              padding: EdgeInsets.only(left: 40, right: 40),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.1,
+                right: MediaQuery.of(context).size.width * 0.1,
+              ),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -112,7 +126,7 @@ class _MainState extends State<Main> {
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 3,
+                      flex: 5,
                       child: Row(
                         children: [
                           Expanded(
@@ -126,23 +140,21 @@ class _MainState extends State<Main> {
                                     '신체 이미지 업로드',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: MediaQuery.of(context).size.width * 0.045,
                                       height: 0.001,
                                       color: Color(0xff404040),
                                     ),
                                   ),
                                   TextButton(
                                     style: TextButton.styleFrom(
-                                      padding: EdgeInsets.only(top: 0, bottom: 0),
+                                      padding: EdgeInsets.zero,
                                       minimumSize: Size(0, 0),
                                     ),
-                                    onPressed: () {
-
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       '저장된 이미지 불러오기',
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: MediaQuery.of(context).size.width * 0.035,
                                         height: 0.7,
                                         color: Color(0xff587CFF),
                                       ),
@@ -165,8 +177,8 @@ class _MainState extends State<Main> {
                                 },
                                 child: Image.asset(
                                   'assets/upload.png',
-                                  width: 60,
-                                  height: 60,
+                                  width: MediaQuery.of(context).size.width * 0.17,
+                                  height: MediaQuery.of(context).size.width * 0.17,
                                 ),
                               ),
                             ),
@@ -175,10 +187,11 @@ class _MainState extends State<Main> {
                       ),
                     ),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: selectedBodyImagePath != null
                           ? Padding(
-                        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 8),
+                        padding: const EdgeInsets.only(
+                            left: 20.0, right: 20.0, bottom: 8),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Color(0xffE3E1EC),
@@ -186,7 +199,8 @@ class _MainState extends State<Main> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 5.0, right: 3.0),
+                                padding: const EdgeInsets.only(
+                                    left: 5.0, right: 3.0),
                                 child: Icon(
                                   Icons.image,
                                   color: Color(0xff587CFF),
@@ -197,7 +211,9 @@ class _MainState extends State<Main> {
                                 child: Text(
                                   '${getFileName(selectedBodyImagePath)}',
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize:
+                                    MediaQuery.of(context).size.width *
+                                        0.04,
                                     color: Colors.black,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -210,12 +226,18 @@ class _MainState extends State<Main> {
                                     selectedBodyImagePath = null;
                                   });
                                 },
-                                icon: Icon(Icons.close, size: 20, color: Color(0xff587CFF)),
+                                icon: Icon(Icons.close,
+                                    size: MediaQuery.of(context)
+                                        .size
+                                        .width *
+                                        0.07,
+                                    color: Color(0xff587CFF)),
                               ),
                             ],
                           ),
                         ),
                       )
+                          : SizedBox(),
                     ),
                   ],
                 ),
@@ -227,9 +249,12 @@ class _MainState extends State<Main> {
             child: SizedBox(),
           ),
           Expanded(
-            flex: 5,
+            flex: 4,
             child: Padding(
-              padding: EdgeInsets.only(left: 40, right: 40),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.1,
+                right: MediaQuery.of(context).size.width * 0.1,
+              ),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -238,7 +263,7 @@ class _MainState extends State<Main> {
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 3,
+                      flex: 5,
                       child: Row(
                         children: [
                           Expanded(
@@ -249,7 +274,7 @@ class _MainState extends State<Main> {
                                 '의상 이미지 업로드',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                                  fontSize: MediaQuery.of(context).size.width * 0.045,
                                   color: Color(0xff404040),
                                 ),
                               ),
@@ -268,8 +293,8 @@ class _MainState extends State<Main> {
                                 },
                                 child: Image.asset(
                                   'assets/upload.png',
-                                  width: 60,
-                                  height: 60,
+                                  width: MediaQuery.of(context).size.width * 0.17,
+                                  height: MediaQuery.of(context).size.width * 0.17,
                                 ),
                               ),
                             ),
@@ -278,10 +303,11 @@ class _MainState extends State<Main> {
                       ),
                     ),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: selectedClothesImagePath != null
                           ? Padding(
-                        padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 8),
+                        padding: const EdgeInsets.only(
+                            left: 20.0, right: 20.0, bottom: 8),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Color(0xffE3E1EC),
@@ -289,7 +315,8 @@ class _MainState extends State<Main> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 5.0, right: 3.0),
+                                padding: const EdgeInsets.only(
+                                    left: 5.0, right: 3.0),
                                 child: Icon(
                                   Icons.image,
                                   color: Color(0xff587CFF),
@@ -300,7 +327,9 @@ class _MainState extends State<Main> {
                                 child: Text(
                                   '${getFileName(selectedClothesImagePath)}',
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize:
+                                    MediaQuery.of(context).size.width *
+                                        0.04,
                                     color: Colors.black,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -313,7 +342,12 @@ class _MainState extends State<Main> {
                                     selectedClothesImagePath = null;
                                   });
                                 },
-                                icon: Icon(Icons.close, size: 20, color: Color(0xff587CFF)),
+                                icon: Icon(Icons.close,
+                                    size: MediaQuery.of(context)
+                                        .size
+                                        .width *
+                                        0.07,
+                                    color: Color(0xff587CFF)),
                               ),
                             ],
                           ),
@@ -331,7 +365,10 @@ class _MainState extends State<Main> {
             child: SizedBox(),
           ),
           Container(
-            padding: EdgeInsets.only(left: 135, right: 135),
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.3,
+              right: MediaQuery.of(context).size.width * 0.3,
+            ),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -341,8 +378,8 @@ class _MainState extends State<Main> {
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(
-                  vertical: 15.0,
-                  horizontal: 20.0,
+                  vertical: MediaQuery.of(context).size.width * 0.036,
+                  horizontal: MediaQuery.of(context).size.width * 0.04,
                 ),
                 backgroundColor: Color(0xff8C72F6),
                 shape: RoundedRectangleBorder(
@@ -353,30 +390,27 @@ class _MainState extends State<Main> {
                 'Fitting',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 28.0,
+                  fontSize: MediaQuery.of(context).size.width * 0.08,
                 ),
               ),
             ),
           ),
           Expanded(
-            flex: 6,
+            flex: 7,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.012,bottom: MediaQuery.of(context).size.width * 0.3),
                 child: Text(
                   '* 신체 이미지는 정면을 제공해 주세요.\n* 신체를 크게 가리는 의상은 결과가 명확하지 않을 수 있습니다.\n* 의상은 구김이 적고 정확하게 표현된 사진을 제공해 주세요.\n* 의상 이미지 배경이 이미지 색과 유사하면 인식이 어려울 수 있습니다.',
                   style: TextStyle(
-                    fontSize: 11,
-                    color: Color(0xff606060),
+                    color: Color(0xff404040),
+                    fontSize: MediaQuery.of(context).size.width * 0.030,
                   ),
+                  textAlign: TextAlign.left,
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 4,
-            child: SizedBox(),
           ),
         ],
       ),
