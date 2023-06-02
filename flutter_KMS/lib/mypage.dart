@@ -139,6 +139,57 @@ class _MyPage extends State<My> {
                       ),
                     )
                   ),
+                  Expanded(
+                    flex: 9,
+                    child: Padding(
+                      padding: EdgeInsets.only(right:30, left:30, bottom: 10),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: () async {
+                            final imagePath = await pickImage();
+                            setState(() {
+                              selectedMyImagePath = imagePath!;
+                            });
+                          },
+                          child: Container(
+                            height: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xffCCC6E6),
+                                  blurRadius: 3.0,
+                                  spreadRadius: 0.0,
+                                  offset: const Offset(0,3),
+                                )
+                              ],
+                              color: Color(0xffF1EEFF),
+                            ),
+                            child: Row(
+                              children: [
+                                Padding(padding: EdgeInsets.only(right:10, left:10)),
+                                Image.asset(
+                                  'assets/bodypic.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                Align(
+                                  child: Text(
+                                    '     신체 이미지 저장 및 변경',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color(0xff404040),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ),
                 ],
               ),
             ),
