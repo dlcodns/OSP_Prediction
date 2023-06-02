@@ -283,6 +283,54 @@ class _MyPage extends State<My> {
             ),
           ),
         ),
+        Expanded(
+          child: SizedBox(height: 1,
+              child: Container(
+                decoration: BoxDecoration(color: Color(0xffD3CCEC)),)),
+        ),
+        Expanded(
+          child: SizedBox(
+            height: 45,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Perinfo()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xffE3DCFF),
+              ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                    Flexible(
+                      flex: 17,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text('개인정보 처리방침',
+                              style: TextStyle(
+                                  color: Color(0xff404040),
+                                  fontSize: 15
+                              )
+                          ),
+                          Align(
+                              child: Icon(Icons.arrow_forward_ios, color: Color(
+                                  0xff726F7A),)
+                          )
+                        ],
+                      ),
+                    )
+                  ]
+              ),
+            ),
+          ),
+        ),
         
       ],
     );
