@@ -64,4 +64,21 @@ class _MyPage extends State<My> {
     return path.split('/').last;
   }
 
+  @override
+  Widget build(BuildContext context){
+    return ListView(
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: 330,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffE3DCFF),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
