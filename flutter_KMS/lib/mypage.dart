@@ -195,6 +195,44 @@ class _MyPage extends State<My> {
             ),
           ),
         ),
+        Expanded(
+          child: SizedBox(height: 40),
+        ),
+
+        Expanded(
+          child: SizedBox(
+            height: 45,
+
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: SizedBox(),
+                  ),
+                  Flexible(
+                    flex: 17,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text('    도움말',
+                            style: TextStyle(
+                                color: Color(0xff918E9F),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13
+                            )
+                        ),
+                        Align(
+                            child: Icon(Icons.arrow_forward_ios,
+                              color: Color(0xffE3DCFF),)
+                        )
+                      ],
+                    ),
+                  )
+                ]
+            ),
+          ),
+        ),
       ],
     );
   }
