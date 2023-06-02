@@ -8,33 +8,35 @@ class Login extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'login',
+      title: 'Login',
       home: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 60,
           elevation: 0,
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffFFFFFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:43),
+            padding: EdgeInsets.only(right:12.0,top:30),
             child: Row(
-              children:  [
+              children: [
                 IconButton(
-                    iconSize: 30,
-                    onPressed: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context)=>StartSelect()));
-                    },
-                    icon: Icon(Icons.keyboard_backspace,color: Color(0xff404040),)
+                  iconSize: 30,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=>StartSelect()));
+                  },
+                  icon: Icon(Icons.keyboard_backspace, color: Color(0xff404040)),
                 ),
-                Text('  로그인',
+                Text(
+                  '  로그인',
                   style: TextStyle(
-                      fontSize: 28,
-                      color: Color(0xff404040),
-                      fontWeight: FontWeight.bold
-                  ),)
+                    fontSize: 28,
+                    color: Color(0xff404040),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           ),
@@ -87,7 +89,7 @@ class _HomeAppState extends State<HomeApp> {
 
   bool _emailExistsInDatabase(String email) {
     // 여기서 실제로 DB에 이메일이 존재하는지 확인하는 로직을 구현해야 합니다.
-    // 이 예제에서는 임의로 'test@example.com' 이 존재하는 것으로 가정합니다.
+    // 일단 'test@example.com' 이 존재하는 것으로 가정
     return email == 'test@example.com';
   }
 
