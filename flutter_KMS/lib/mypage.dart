@@ -75,6 +75,39 @@ class _MyPage extends State<My> {
               decoration: BoxDecoration(
                 color: Color(0xffE3DCFF),
               ),
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 10, right:40),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Container(
+                            width: 70,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.transparent,
+                              border: Border.all(
+                                color: Color(0xffD3CCEC),
+                                width: 2,
+                              ),
+                            ),
+                            child:  Icon(
+                              Icons.settings,
+                              color: Color(0xffB2ADC6),
+                              size: 35,
+                            ),
+                          ),
+                        )
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
