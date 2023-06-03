@@ -112,7 +112,7 @@ class _ClothImagePickingPageState extends State<ClothImagePickingPage> {
             child: Container(
               width: 100,
               height: 100,
-              color: Colors.red,
+              color: Colors.blue,
               child: Text('이미지 확정 후 다음 페이지로'),
             ),
           ),
