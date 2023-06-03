@@ -129,281 +129,284 @@ class _HomeAppState extends State<HomeApp> {
     return Column(
       children: [
         Expanded(
-          child: ListView(
-              children: [
-                const Align(
-                  alignment: Alignment(-0.9,0.0),
-                  child: Text('\n이메일*',
-                    style: TextStyle(
-                        fontSize: 16
+          child: Form(
+            key: formKey,
+            child: ListView(
+                children: [
+                  const Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('\n이메일*',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
                     ),
                   ),
-                ),
-                Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
+                  Container(height: 5),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextField(
+                        controller: _emailController,
+                        decoration: InputDecoration(
                           labelText: 'ex) woowang@gmail.com',
                           labelStyle: TextStyle(
                               color: Color(0xffBDBDBD)
                           ),
                           border: OutlineInputBorder(),
-                        errorText: _invalidEmailFormat
-                            ? '잘못된 이메일 형식입니다.'
-                            : (_emailNotStored ? '이미 있는 이메일입니다.' : null),
+                          errorText: _invalidEmailFormat
+                              ? '잘못된 이메일 형식입니다.'
+                              : (_emailNotStored ? '이미 있는 이메일입니다.' : null),
+                        ),
+                        style: TextStyle(fontSize: 14),
                       ),
-                      style: TextStyle(fontSize: 14),
                     ),
                   ),
-                ),
-                Container(height: 10),
-                const Align(
-                  alignment: Alignment(-0.9,0.0),
-                  child: Text('비밀번호*',
-                    style: TextStyle(
-                        fontSize: 16
-                    ),
-                  ),
-                ),
-                Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _newPasswordController,
-                      decoration: InputDecoration(
-                          labelText: '영문, 숫자 조합 8~16자',
-                          labelStyle: TextStyle(
-                              color: Color(0xffBDBDBD)
-                          ),
-                          border: OutlineInputBorder(),
-                        errorText: _invalidPasswordFormat
-                            ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
+                  Container(height: 10),
+                  const Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('비밀번호*',
+                      style: TextStyle(
+                          fontSize: 16
                       ),
-                      style: TextStyle(fontSize: 14),
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
                     ),
                   ),
-                ),
-                Container(height: 10),
-                const Align(
-                  alignment: Alignment(-0.9,0.0),
-                  child: Text('비밀번호 확인*',
-                    style: TextStyle(
-                        fontSize: 16
+                  Container(height: 5),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextField(
+                        controller: _PasswordController,
+                        decoration: InputDecoration(
+                            labelText: '영문, 숫자 조합 8~16자',
+                            labelStyle: TextStyle(
+                                color: Color(0xffBDBDBD)
+                            ),
+                            border: OutlineInputBorder(),
+                            errorText: _invalidPasswordFormat
+                                ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
+                        ),
+                        style: TextStyle(fontSize: 14),
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                      ),
                     ),
                   ),
-                ),
-                Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _confirmPasswordController,
-                      decoration: InputDecoration(
+                  Container(height: 10),
+                  const Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('비밀번호 확인*',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
+                    ),
+                  ),
+                  Container(height: 5),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextField(
+                        controller: _confirmPasswordController,
+                        decoration: InputDecoration(
                           labelText: '비밀번호를 한 번 더 입력해주세요.',
                           labelStyle: TextStyle(
                               color: Color(0xffBDBDBD)
                           ),
                           border: OutlineInputBorder(),
-                        errorText: _newpasswordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                          errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                        ),
+                        style: TextStyle(fontSize: 14),
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                       ),
-                      style: TextStyle(fontSize: 14),
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
                     ),
                   ),
-                ),
-                Container(height: 10),
-                const Align(
-                  alignment: Alignment(-0.9,0.0),
-                  child: Text('이름*',
-                    style: TextStyle(
-                        fontSize: 16
+                  Container(height: 10),
+                  const Align(
+                    alignment: Alignment(-0.9,0.0),
+                    child: Text('이름*',
+                      style: TextStyle(
+                          fontSize: 16
+                      ),
                     ),
                   ),
-                ),
-                Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      decoration: InputDecoration(
+                  Container(height: 5),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextField(
+                        decoration: InputDecoration(
                           labelText: 'ex) 김우왕',
                           labelStyle: TextStyle(
                               color: Color(0xffBDBDBD)
                           ),
                           border: OutlineInputBorder(),
+                        ),
+                        style: TextStyle(fontSize: 14),
                       ),
-                      style: TextStyle(fontSize: 14),
                     ),
                   ),
-                ),
-                Container(height: 50),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: _isTermsChecked1,
-                          onChanged: (value) {
-                            setState(() {
-                              _isTermsChecked1 = value!;
-                              //_agreeTermsError = !_isAllTermsChecked();
-                            });
-                          },
-                        ),
-                        const Text('이용약관 필수 동의',
-                          style: TextStyle(
-                              fontSize: 14
-                          ),
-                        ),
-                        SizedBox(
-                          height: 19.0,
-                          child: TextButton(
-                            child: const Text('자세히 보기',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 14,
-                                  color: Color(0xff404040)
-                              ),
-                            ),
-                            onPressed: (){
-                              //서비스 이용약관
+                  Container(height: 50),
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _isTermsChecked1,
+                            onChanged: (value) {
+                              setState(() {
+                                _isTermsChecked1 = value!;
+                                //_agreeTermsError = !_isAllTermsChecked();
+                              });
                             },
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: _isTermsChecked2,
-                          onChanged: (value) {
-                            setState(() {
-                              _isTermsChecked2 = value!;
-                              //_agreeTermsError = !_isAllTermsChecked();
-                            });
-                          },
-                        ),
-                        const Text('개인정보 처리방침 필수 동의',
-                          style: TextStyle(
-                              fontSize: 14
-                          ),
-                        ),
-                        SizedBox(
-                          height: 19.0,
-                          child: TextButton(
-                            child: const Text('자세히 보기',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 14,
-                                  color: Color(0xff404040)
-                              ),
+                          const Text('이용약관 필수 동의',
+                            style: TextStyle(
+                                fontSize: 14
                             ),
-                            onPressed: (){
-                              //개인정보 처리방침
+                          ),
+                          SizedBox(
+                            height: 19.0,
+                            child: TextButton(
+                              child: const Text('자세히 보기',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 14,
+                                    color: Color(0xff404040)
+                                ),
+                              ),
+                              onPressed: (){
+                                //서비스 이용약관
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _isTermsChecked2,
+                            onChanged: (value) {
+                              setState(() {
+                                _isTermsChecked2 = value!;
+                                //_agreeTermsError = !_isAllTermsChecked();
+                              });
                             },
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: _isTermsChecked3,
-                          onChanged: (value) {
-                            setState(() {
-                              _isTermsChecked3 = value!;
-                              //_agreeTermsError = !_isAllTermsChecked();
-                            });
-                          },
-                        ),
-                        const Text('위치정보 이용 약관 필수 동의',
-                          style: TextStyle(
-                              fontSize: 14
-                          ),
-                        ),
-                        SizedBox(
-                          height: 19.0,
-                          child: TextButton(
-                            child: const Text('자세히 보기',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 14,
-                                  color: Color(0xff404040)
-                              ),
+                          const Text('개인정보 처리방침 필수 동의',
+                            style: TextStyle(
+                                fontSize: 14
                             ),
-                            onPressed: (){
-                              //위치정보 이용 약관 필수 동의
+                          ),
+                          SizedBox(
+                            height: 19.0,
+                            child: TextButton(
+                              child: const Text('자세히 보기',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 14,
+                                    color: Color(0xff404040)
+                                ),
+                              ),
+                              onPressed: (){
+                                //개인정보 처리방침
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _isTermsChecked3,
+                            onChanged: (value) {
+                              setState(() {
+                                _isTermsChecked3 = value!;
+                                //_agreeTermsError = !_isAllTermsChecked();
+                              });
                             },
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: _isTermsChecked5,
-                          onChanged: (value) {
-                            setState(() {
-                              _isTermsChecked5 = value!;
-                            });
-                          },
-                        ),
-                        const Text('마케팅 정보 수신 선택 동의',
-                          style: TextStyle(
-                              fontSize: 14
-                          ),
-                        ),
-                        SizedBox(
-                          height: 19.0,
-                          child: TextButton(
-                            child: const Text('자세히 보기',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 14,
-                                  color: Color(0xff404040)
-                              ),
+                          const Text('위치정보 이용 약관 필수 동의',
+                            style: TextStyle(
+                                fontSize: 14
                             ),
-                            onPressed: (){
-                              //마케팅 정보 수신 선택 동의
+                          ),
+                          SizedBox(
+                            height: 19.0,
+                            child: TextButton(
+                              child: const Text('자세히 보기',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 14,
+                                    color: Color(0xff404040)
+                                ),
+                              ),
+                              onPressed: (){
+                                //위치정보 이용 약관 필수 동의
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _isTermsChecked5,
+                            onChanged: (value) {
+                              setState(() {
+                                _isTermsChecked5 = value!;
+                              });
                             },
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: _isTermsChecked4,
-                          onChanged: (value) {
-                            setState(() {
-                              _isTermsChecked4 = value!;
-                              //_agreeTermsError = !_isAllTermsChecked();
-                            });
-                          },
-                        ),
-                        Text('만 14세 이상임에 필수 동의',
-                          style: TextStyle(
-                              fontSize: 14
+                          const Text('마케팅 정보 수신 선택 동의',
+                            style: TextStyle(
+                                fontSize: 14
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ]
+                          SizedBox(
+                            height: 19.0,
+                            child: TextButton(
+                              child: const Text('자세히 보기',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 14,
+                                    color: Color(0xff404040)
+                                ),
+                              ),
+                              onPressed: (){
+                                //마케팅 정보 수신 선택 동의
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _isTermsChecked4,
+                            onChanged: (value) {
+                              setState(() {
+                                _isTermsChecked4 = value!;
+                                //_agreeTermsError = !_isAllTermsChecked();
+                              });
+                            },
+                          ),
+                          Text('만 14세 이상임에 필수 동의',
+                            style: TextStyle(
+                                fontSize: 14
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ]
+            ),
           ),
         ),
         Container(
@@ -423,12 +426,11 @@ class _HomeAppState extends State<HomeApp> {
                   _validateEmail();
                   _validatePassword();
                   _checkPassword();
-                  if (!_invalidEmailFormat && !_emailNotStored && !_newpasswordMismatch && _isAllTermsChecked()) {
-                    // 비밀번호가 일치하면 다음 페이지로 이동
-                    //Navigator.push(
-                    //  context,
-                    //  MaterialPageRoute(builder: (context)=>Celebration()));
-                    // );
+                  if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_passwordMismatch && _isAllTermsChecked()) {
+                    //비밀번호가 일치하면 다음 페이지로 이동
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=>Celebration()));
                   }
                 },
               )
