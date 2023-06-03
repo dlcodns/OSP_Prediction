@@ -34,7 +34,7 @@ class HomeApp extends StatelessWidget{
           fit: FlexFit.loose,
           child: Align(
             alignment: Alignment.bottomCenter,
-            child: Image.asset('1_door.png',height: MediaQuery.of(context).size.height),
+            child: Image.asset('assets/door.png',width: MediaQuery.of(context).size.width),
           ),
         ),
         Flexible(
@@ -50,7 +50,7 @@ class HomeApp extends StatelessWidget{
                         MaterialPageRoute(builder: (context)=>StartSelect()));
                   },
                   icon: Image.asset(
-                      '1_start.png'
+                      'assets/start.png'
                   ),
                 )
             ),

@@ -65,6 +65,9 @@ class _MyPage extends State<My> {
 
   @override
   Widget build(BuildContext context){
+    var m = MediaQuery.of(context);
+    print("넓이 : ${m.size.width}");
+    print("높이 : ${m.size.height}");
     return ListView(
       children: [
         Expanded(
@@ -158,6 +161,7 @@ class _MyPage extends State<My> {
                             },
                             child: Container(
                               height: 80,
+                              width: MediaQuery.of(context).size.width*0.9,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: [
@@ -174,7 +178,7 @@ class _MyPage extends State<My> {
                                 children: [
                                   Padding(padding: EdgeInsets.only(right:10, left:10)),
                                   Image.asset(
-                                    'bodypic.png',
+                                    'assets/bodypic.png',
                                     width: 50,
                                     height: 50,
                                   ),
@@ -182,7 +186,7 @@ class _MyPage extends State<My> {
                                     child: Text(
                                       '     신체 이미지 저장 및 변경',
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         color: Color(0xff404040),
                                       ),
                                     ),

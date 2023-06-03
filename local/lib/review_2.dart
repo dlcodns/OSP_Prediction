@@ -129,7 +129,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('miso.jpg', fit: BoxFit.contain),
+                                child: Image.asset('assets/miso.jpg', fit: BoxFit.contain),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.5,
@@ -137,7 +137,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('TY.png', fit: BoxFit.contain),
+                                child: Image.asset('assets/TY.png', fit: BoxFit.contain),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.5,
@@ -145,7 +145,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('heart.jpg', fit: BoxFit.contain),
+                                child: Image.asset('assets/heart.jpg', fit: BoxFit.contain),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.5,
@@ -153,7 +153,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('miso.jpg', fit: BoxFit.contain),
+                                child: Image.asset('assets/miso.jpg', fit: BoxFit.contain),
                               ),
                             ],
                           ),
@@ -169,7 +169,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('heart.jpg', fit: BoxFit.contain),
+                                child: Image.asset('assets/heart.jpg', fit: BoxFit.contain),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.5,
@@ -177,7 +177,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('kitty.png', fit: BoxFit.contain),
+                                child: Image.asset('assets/kitty.png', fit: BoxFit.contain),
                               ),
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.5,
@@ -185,7 +185,7 @@ class HomeApp extends StatelessWidget{
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(width: 10, color: const Color(0xffEEEAFF)),
                                 ),
-                                child: Image.asset('TY.png', fit: BoxFit.contain),
+                                child: Image.asset('assets/TY.png', fit: BoxFit.contain),
                               ),
                             ],
                           ),

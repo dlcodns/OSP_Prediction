@@ -136,7 +136,7 @@ class HomeApp extends StatelessWidget{
                               border: Border.all(width:10,color: Color(0xffEEEAFF)
                               ),
                             ),
-                            child: Image.asset('miso.jpg',fit: BoxFit.contain)
+                            child: Image.asset('assets/iso.jpg',fit: BoxFit.contain)
                         ),
                         Container(
                             decoration: BoxDecoration(
@@ -144,7 +144,7 @@ class HomeApp extends StatelessWidget{
                               border: Border.all(width:10,color: Color(0xffEEEAFF)
                               ),
                             ),
-                            child: Image.asset('TY.png',fit: BoxFit.contain)
+                            child: Image.asset('assets/TY.png',fit: BoxFit.contain)
                         ),
                         Container(
                             decoration: BoxDecoration(
@@ -152,7 +152,7 @@ class HomeApp extends StatelessWidget{
                               border: Border.all(width:10,color: Color(0xffEEEAFF)
                               ),
                             ),
-                            child: Image.asset('kitty.png',fit: BoxFit.contain)
+                            child: Image.asset('assets/kitty.png',fit: BoxFit.contain)
                         ),
                         Container(
                             decoration: BoxDecoration(
@@ -160,7 +160,7 @@ class HomeApp extends StatelessWidget{
                               border: Border.all(width:10,color: Color(0xffEEEAFF)
                               ),
                             ),
-                            child: Image.asset('heart.jpg',fit: BoxFit.contain)
+                            child: Image.asset('assets/heart.jpg',fit: BoxFit.contain)
                         ),
                       ]
                   ),

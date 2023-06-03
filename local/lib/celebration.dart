@@ -34,7 +34,7 @@ class HomeApp extends StatelessWidget{
               fit: FlexFit.loose,
               child: Align(
                   alignment: const Alignment(0.0, 0.0),
-                  child: Image.asset('5_cele.png',
+                  child: Image.asset('assets/5_cele.png',
                       width: MediaQuery.of(context).size.width*0.75)
               ),
             ),

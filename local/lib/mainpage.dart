@@ -26,7 +26,7 @@ class MainPage extends StatelessWidget {
                   right: MediaQuery.of(context).size.width * 0.02,
                 ),
                 child: Image.asset(
-                  'logo.png',
+                  'assets/logo.png',
                   width: 220,
                   height: 44,
                 ),
@@ -179,7 +179,7 @@ class _MainState extends State<Main> {
                                   });
                                 },
                                 child: Image.asset(
-                                  'upload.png',
+                                  'assets/upload.png',
                                   width: MediaQuery.of(context).size.width * 0.17,
                                   height: MediaQuery.of(context).size.width * 0.17,
                                 ),
@@ -295,7 +295,7 @@ class _MainState extends State<Main> {
                                   });
                                 },
                                 child: Image.asset(
-                                  'upload.png',
+                                  'assets/upload.png',
                                   width: MediaQuery.of(context).size.width * 0.17,
                                   height: MediaQuery.of(context).size.width * 0.17,
                                 ),
