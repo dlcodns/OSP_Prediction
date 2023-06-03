@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:local/review_1.dart';
 import 'package:local/mypage.dart';
+import 'package:local/result.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MainPage extends StatelessWidget {
@@ -375,7 +376,7 @@ class _MainState extends State<Main> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainPage()),
+                  MaterialPageRoute(builder: (context) => Result()),
                 );
               },
               style: ElevatedButton.styleFrom(
