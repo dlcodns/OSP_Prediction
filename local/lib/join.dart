@@ -272,7 +272,6 @@ class _HomeAppState extends State<HomeApp> {
                             ),
                           ),
                           SizedBox(
-                            height: 19.0,
                             child: TextButton(
                               child: const Text('자세히 보기',
                                 style: TextStyle(
@@ -305,7 +304,6 @@ class _HomeAppState extends State<HomeApp> {
                             ),
                           ),
                           SizedBox(
-                            height: 19.0,
                             child: TextButton(
                               child: const Text('자세히 보기',
                                 style: TextStyle(
@@ -338,7 +336,6 @@ class _HomeAppState extends State<HomeApp> {
                             ),
                           ),
                           SizedBox(
-                            height: 19.0,
                             child: TextButton(
                               child: const Text('자세히 보기',
                                 style: TextStyle(
@@ -370,7 +367,6 @@ class _HomeAppState extends State<HomeApp> {
                             ),
                           ),
                           SizedBox(
-                            height: 19.0,
                             child: TextButton(
                               child: const Text('자세히 보기',
                                 style: TextStyle(
