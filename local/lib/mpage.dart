@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local/page/review_1.dart';
+import 'package:local/review_1.dart';
 //import 'package:image_picker/image_picker.dart';
 
 class MainPage extends StatelessWidget {

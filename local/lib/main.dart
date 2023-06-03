@@ -1,6 +1,5 @@
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:local/page/start_select.dart';
+import 'package:local/start_select.dart';
 
 void main() {
   runApp(const MyApp());  //앱 시작해주세요!, MyApp(메인페이지 주소)

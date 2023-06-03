@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local/page/guide.dart';
+import 'package:local/guide.dart';
 
 
 class Celebration extends StatelessWidget{

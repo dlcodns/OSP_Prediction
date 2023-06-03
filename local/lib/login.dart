@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:local/page/start_select.dart';
-import 'package:local/page/mpage.dart';
+import 'package:local/start_select.dart';
+import 'package:local/mpage.dart';
 
 class Login extends StatelessWidget{
   const Login({super.key});
