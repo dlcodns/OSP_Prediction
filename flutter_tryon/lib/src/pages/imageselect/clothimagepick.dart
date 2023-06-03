@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tryon/modelimagepick.dart';
+import 'package:flutter_tryon/src/pages/imageselect/modelimagepick.dart';
 import 'dart:io';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
-import 'api.dart';
+import '../../../api/api.dart';
 
 class ClothImagePickingPage extends StatefulWidget {
   ClothImagePickingPage({super.key});
@@ -112,7 +112,7 @@ class _ClothImagePickingPageState extends State<ClothImagePickingPage> {
             child: Container(
               width: 100,
               height: 100,
-              color: Colors.red,
+              color: Colors.blue,
               child: Text('이미지 확정 후 다음 페이지로'),
             ),
           ),

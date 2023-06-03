@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tryon/config/app_router.dart';
+import 'package:flutter_tryon/src/binding/initial_binding.dart';
+import 'package:flutter_tryon/src/pages/login/loginpage.dart';
 import 'package:get/get.dart';
-
-import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +15,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'flutter-tryon',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      initialBinding: InitBinding(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      home: LoginPage(),
     );
   }
 }
