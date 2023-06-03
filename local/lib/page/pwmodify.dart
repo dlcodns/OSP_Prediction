@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local/setting.dart';
+import 'package:local/page/setting.dart';
 
 class Pwmodify extends StatelessWidget {
   const Pwmodify({Key? key}) : super(key: key);

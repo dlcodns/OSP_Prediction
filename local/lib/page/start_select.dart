@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:local/join.dart';
-import 'package:local/login.dart';
+import 'package:local/page/join.dart';
+import 'package:local/page/login.dart';
 
 class StartSelect extends StatelessWidget{
   const StartSelect({super.key});

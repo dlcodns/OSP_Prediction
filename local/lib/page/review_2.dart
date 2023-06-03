@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:local/review_1.dart';
-import 'package:local/mpage.dart';
+import 'package:local/page/review_1.dart';
+import 'package:local/page/mpage.dart';
 
 class ReviewTwo extends StatelessWidget {
   const ReviewTwo({Key? key}) : super(key: key);

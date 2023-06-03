@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local/setting.dart';
+import 'package:local/page/setting.dart';
 
 class AlwaysDisabledFocusNode extends FocusNode {
   @override

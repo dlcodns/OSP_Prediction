@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:local/start_select.dart';
-import 'package:local/modify.dart';
-import 'package:local/pwmodify.dart';
+import 'package:local/page/start_select.dart';
+import 'package:local/page/modify.dart';
+import 'package:local/page/pwmodify.dart';
 
 void main() {
   runApp(const Setting());  //앱 시작해주세요!, MyApp(메인페이지 주소)

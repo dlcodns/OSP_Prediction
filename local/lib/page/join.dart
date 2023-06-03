@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:local/start_select.dart';
-import 'package:local/celebration.dart';
+import 'dart:convert';
+import 'package:local/page/start_select.dart';
+import 'package:local/page/celebration.dart';
+import 'package:local/api/api.dart';
+import 'package:local/model/user.dart';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Join extends StatelessWidget{
   const Join({super.key});
@@ -52,10 +57,65 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _PasswordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
+
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _PasswordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  checkUserEmail() async{
+    try{
+      var response = await http.post(Uri.parse(API.validateEmail),
+      body: {
+        'user_id' : _emailController.text.trim()
+      }
+      );
+      if (response.statusCode == 200){//서버 통신이 성공했는지 확인하는 것
+        var responseBody = jsonDecode(response.body);
+
+        if(responseBody['existEmail'] == true){//이미 이메일이 있다면
+          Fluttertoast.showToast(
+              msg: "이미 존재하는 이메일입니다.",
+          );
+        }else{
+          saveInfo();
+        }
+      }
+    }catch(e){
+      print(e.toString());
+      Fluttertoast.showToast(msg: e.toString());
+    }
+  }
+
+  saveInfo() async{ //이를 통해 user.dart로 저장되면 정보를 Json포맷으로 바꿔줌.
+    User userModel = User(
+      1,
+      _nameController.text.trim(),
+      _emailController.text.trim(),
+      _PasswordController.text.trim()
+    );
+
+    try{    //mysql DB에서 이 정보를 저장할 수 있게 함
+      var res = await http.post(
+        Uri.parse(API.signup),
+        body: userModel.toJson()
+      );
+
+      if(res.statusCode == 200){
+        var resSignup = jsonDecode(res.body);
+        if(resSignup['success'] == true){
+          Fluttertoast.showToast(msg: '가입을 축하합니다.');
+        }else{
+          Fluttertoast.showToast(msg: '회원가입 불가');
+        }
+      }
+    }catch(e){
+      print(e.toString());
+      Fluttertoast.showToast(msg: e.toString());
+    }
+  }
+
 
   bool _passwordMismatch = false;
   bool _invalidEmailFormat = false;
@@ -95,7 +155,7 @@ class _HomeAppState extends State<HomeApp> {
 
     setState(() {
       _invalidEmailFormat = !regex.hasMatch(email);
-      _emailNotStored = _emailExistsInDatabase(email); // 이메일이 DB에 존재하지 않을 경우
+      //_emailNotStored = _emailExistsInDatabase(email); // 이메일이 DB에 존재하지 않을 경우
     });
   }
 
@@ -110,11 +170,11 @@ class _HomeAppState extends State<HomeApp> {
     });
   }
 
-  bool _emailExistsInDatabase(String email) {
-    //DB에서 가져오는 로직 구현
-    // 일단 'test@example.com' 이 존재하는 것으로 가정.
-    return email == 'test@example.com';
-  }
+ //bool _emailExistsInDatabase(String email) {
+ //  //DB에서 가져오는 로직 구현
+ //  // 일단 'test@example.com' 이 존재하는 것으로 가정.
+ //  return email == 'test@example.com';
+ //}
 
   bool _isAllTermsChecked() {
     return _isTermsChecked1 && _isTermsChecked2 && _isTermsChecked3 && _isTermsChecked4;
@@ -139,23 +199,27 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ),
                 Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        labelText: 'ex) woowang@gmail.com',
-                        labelStyle: TextStyle(
-                            color: Color(0xffBDBDBD)
+                Form(
+                  key: formKey,
+                  child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextFormField(
+                        controller: _emailController,
+                        validator: (val) =>
+                        val == "" ? "이메일을 입력해주세요. " : null,
+                        decoration: InputDecoration(
+                          labelText: 'ex) woowang@gmail.com',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder(),
+                          errorText: _invalidEmailFormat
+                              ? '잘못된 이메일 형식입니다.' : null
                         ),
-                        border: OutlineInputBorder(),
-                        errorText: _invalidEmailFormat
-                            ? '잘못된 이메일 형식입니다.'
-                            : (_emailNotStored ? '이미 있는 이메일입니다.' : null),
+                        style: TextStyle(fontSize: 14),
                       ),
-                      style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ),
@@ -169,25 +233,30 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ),
                 Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _PasswordController,
-                      decoration: InputDecoration(
-                          labelText: '영문, 숫자 조합 8~16자',
-                          labelStyle: TextStyle(
-                              color: Color(0xffBDBDBD)
-                          ),
-                          border: OutlineInputBorder(),
-                          errorText: _invalidPasswordFormat
-                              ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
+                Form(
+                  key: formKey,
+                  child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextFormField(
+                        controller: _PasswordController,
+                        validator: (val) =>
+                        val == "" ? "비밀번호를 입력해주세요. " : null,
+                        decoration: InputDecoration(
+                            labelText: '영문, 숫자 조합 8~16자',
+                            labelStyle: TextStyle(
+                                color: Color(0xffBDBDBD)
+                            ),
+                            border: OutlineInputBorder(),
+                            errorText: _invalidPasswordFormat
+                                ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
+                        ),
+                        style: TextStyle(fontSize: 14),
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                       ),
-                      style: TextStyle(fontSize: 14),
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
                     ),
                   ),
                 ),
@@ -201,24 +270,30 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ),
                 Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _confirmPasswordController,
-                      decoration: InputDecoration(
-                        labelText: '비밀번호를 한 번 더 입력해주세요.',
-                        labelStyle: TextStyle(
-                            color: Color(0xffBDBDBD)
+                Form(
+                  key: formKey,
+                  child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextFormField(
+                        controller: _confirmPasswordController,
+                        validator: (val) =>
+                        val == "" ? "비밀번호를 입력해주세요. " : null,
+                        decoration: InputDecoration(
+                          labelText: '비밀번호를 한 번 더 입력해주세요.',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder(),
+                          errorText: _passwordMismatch
+                              ? '비밀번호가 맞지 않습니다.' : null,
                         ),
-                        border: OutlineInputBorder(),
-                        errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                        style: TextStyle(fontSize: 14),
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                       ),
-                      style: TextStyle(fontSize: 14),
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
                     ),
                   ),
                 ),
@@ -232,19 +307,25 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                 ),
                 Container(height: 5),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width*0.9,
-                    height: 50,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        labelText: 'ex) 김우왕',
-                        labelStyle: TextStyle(
-                            color: Color(0xffBDBDBD)
+                Form(
+                  key:formKey,
+                  child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: 50,
+                      child: TextFormField(
+                        controller: _nameController,
+                        validator: (val) =>
+                        val == "" ? "이름을 입력해주세요. " : null,
+                        decoration: InputDecoration(
+                          labelText: 'ex) 김우왕',
+                          labelStyle: TextStyle(
+                              color: Color(0xffBDBDBD)
+                          ),
+                          border: OutlineInputBorder(),
                         ),
-                        border: OutlineInputBorder(),
+                        style: TextStyle(fontSize: 14),
                       ),
-                      style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ),
@@ -410,25 +491,32 @@ class _HomeAppState extends State<HomeApp> {
           child: SizedBox(
               width:double.infinity,
               height: 73,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Color(0xff6744F2)),
-                child: const Text('다음',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                onPressed: (){
-                  _validateEmail();
-                  _validatePassword();
-                  _checkPassword();
-                  if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_passwordMismatch && _isAllTermsChecked()) {
-                    //비밀번호가 일치하면 다음 페이지로 이동
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context)=>Celebration()));
+              child: GestureDetector(
+                onTap: (){
+                  if(formKey.currentState!.validate()){
+                    checkUserEmail();
                   }
-                },
+                  },
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Color(0xff6744F2)),
+                  child: const Text('다음',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  onPressed: (){
+                    _validateEmail();
+                    _validatePassword();
+                    _checkPassword();
+                    if (!_invalidEmailFormat && !_invalidPasswordFormat && !_emailNotStored && !_passwordMismatch && _isAllTermsChecked()) {
+                      //비밀번호가 일치하면 다음 페이지로 이동
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context)=>Celebration()));
+                    }
+                  },
+                ),
               )
           ),
         ),
