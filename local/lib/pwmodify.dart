@@ -16,7 +16,7 @@ class Pwmodify extends StatelessWidget {
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffFFFFFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:30),
+            padding: EdgeInsets.only(right:12.0),
             child: Row(
               children:  [
                 IconButton(
@@ -50,6 +50,8 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
+  var formKey = GlobalKey<FormState>();
+
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
@@ -94,145 +96,148 @@ class _HomeAppState extends State<HomeApp> {
     return Column(
       children: [
         Expanded(
-          child: ListView(
-            children: [
-              Container(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Flexible(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
-                  Flexible(
-                    flex: 40,
-                    child: Align(
-                      alignment: Alignment(-0.9,0.0),
-                      child: Text('기존 비밀번호',
-                        style: TextStyle(
-                            fontSize: 16
+          child: Form(
+            key: formKey,
+            child: ListView(
+              children: [
+                Container(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Flexible(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                    Flexible(
+                      flex: 40,
+                      child: Align(
+                        alignment: Alignment(-0.9,0.0),
+                        child: Text('기존 비밀번호',
+                          style: TextStyle(
+                              fontSize: 16
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Container(height: 10),
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width*0.9,
-                  height: 50,
-                  child: TextField(
-                    controller: _currentPasswordController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xffEDEDED),
-                      labelText: '비밀번호를 입력해주세요.',
-                      labelStyle: TextStyle(color: Color(0xffBDBDBD)),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xffEDEDED)),
-                      ),
-                      errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
-                    ),
-                    style: TextStyle(fontSize: 14),
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                  ),
+                  ],
                 ),
-              ),
-              Container(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Flexible(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
-                  Flexible(
-                    flex: 40,
-                    child: Align(
-                      alignment: Alignment(-0.9,0.0),
-                      child: Text('새 비밀번호',
-                        style: TextStyle(
-                            fontSize: 16
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Container(height: 10),
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width*0.9,
-                  height: 50,
-                  child: TextField(
-                    controller: _newPasswordController,
-                    decoration: InputDecoration(
+                Container(height: 10),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextFormField(
+                      controller: _currentPasswordController,
+                      decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xffEDEDED),
-                        labelText: '새로운 비밀번호를 입력해주세요.',
+                        labelText: '비밀번호를 입력해주세요.',
                         labelStyle: TextStyle(color: Color(0xffBDBDBD)),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffEDEDED)),
                         ),
-                        errorText: _invalidPasswordFormat
-                            ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
+                        errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                      ),
+                      style: TextStyle(fontSize: 14),
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
                     ),
-                    style: TextStyle(fontSize: 14),
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
                   ),
                 ),
-              ),
-              Container(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Flexible(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
-                  Flexible(
-                    flex: 40,
-                    child: Align(
-                      alignment: Alignment(-0.9,0.0),
-                      child: Text('비밀번호 확인',
-                        style: TextStyle(
-                            fontSize: 16
+                Container(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Flexible(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                    Flexible(
+                      flex: 40,
+                      child: Align(
+                        alignment: Alignment(-0.9,0.0),
+                        child: Text('새 비밀번호',
+                          style: TextStyle(
+                              fontSize: 16
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Container(height: 10),
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width*0.9,
-                  height: 50,
-                  child: TextField(
-                    controller: _confirmPasswordController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xffEDEDED),
-                      labelText: '비밀번호를 한 번 더 입력해주세요.',
-                      labelStyle: TextStyle(color: Color(0xffBDBDBD)),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xffEDEDED)),
+                  ],
+                ),
+                Container(height: 10),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextFormField(
+                      controller: _newPasswordController,
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xffEDEDED),
+                          labelText: '새로운 비밀번호를 입력해주세요.',
+                          labelStyle: TextStyle(color: Color(0xffBDBDBD)),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xffEDEDED)),
+                          ),
+                          errorText: _invalidPasswordFormat
+                              ? '영문, 숫자 조합 8자 이상 16자 이내로 입력하세요.' : null
                       ),
-                      errorText: _newpasswordMismatch ? '비밀번호가 일치하지 않습니다.' : null,
+                      style: TextStyle(fontSize: 14),
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
                     ),
-                    style: TextStyle(fontSize: 14),
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
                   ),
                 ),
-              ),
-            ],
+                Container(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Flexible(
+                      flex: 1,
+                      child: SizedBox(),
+                    ),
+                    Flexible(
+                      flex: 40,
+                      child: Align(
+                        alignment: Alignment(-0.9,0.0),
+                        child: Text('비밀번호 확인',
+                          style: TextStyle(
+                              fontSize: 16
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(height: 10),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width*0.9,
+                    height: 50,
+                    child: TextFormField(
+                      controller: _confirmPasswordController,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color(0xffEDEDED),
+                        labelText: '비밀번호를 한 번 더 입력해주세요.',
+                        labelStyle: TextStyle(color: Color(0xffBDBDBD)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xffEDEDED)),
+                        ),
+                        errorText: _newpasswordMismatch ? '비밀번호가 일치하지 않습니다.' : null,
+                      ),
+                      style: TextStyle(fontSize: 14),
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Container(

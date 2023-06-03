@@ -22,10 +22,10 @@ class Setting extends StatelessWidget {
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:30),
+            padding: EdgeInsets.only(right:12.0),
             child: Row(
               children: const [
-                Icon(Icons.settings, color: Color(0xff404040), size: 30,              ),
+                Icon(Icons.settings, color: Color(0xff404040), size: 30),
                 Text('  설정',
                   style: TextStyle(
                       fontSize: 24,
@@ -48,6 +48,8 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
+  var formKey = GlobalKey<FormState>();
+
   final TextEditingController _currentPasswordController = TextEditingController();
   bool _passwordMismatch = false;
 
@@ -500,27 +502,30 @@ class _HomeAppState extends State<HomeApp> {
                                         ),
                                         Container(height: 10),
                                         Center(
-                                          child: SizedBox(
-                                            width: MediaQuery.of(context).size.width * 0.9,
-                                            height: 50,
-                                            child: TextField(
-                                              controller: _currentPasswordController,
-                                              decoration: InputDecoration(
-                                                filled: true,
-                                                fillColor: Color(0xffEDEDED),
-                                                labelText: '비밀번호를 입력하세요.',
-                                                labelStyle: TextStyle(
-                                                  color: Color(0xffBDBDBD),
+                                          child: Form(
+                                            key: formKey,
+                                            child: SizedBox(
+                                              width: MediaQuery.of(context).size.width * 0.9,
+                                              height: 50,
+                                              child: TextFormField(
+                                                controller: _currentPasswordController,
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor: Color(0xffEDEDED),
+                                                  labelText: '비밀번호를 입력하세요.',
+                                                  labelStyle: TextStyle(
+                                                    color: Color(0xffBDBDBD),
+                                                  ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderSide: BorderSide(color: Color(0xffEDEDED)),
+                                                  ),
+                                                  errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
                                                 ),
-                                                enabledBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(color: Color(0xffEDEDED)),
-                                                ),
-                                                errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                                                style: TextStyle(fontSize: 14),
+                                                obscureText: true,
+                                                enableSuggestions: false,
+                                                autocorrect: false,
                                               ),
-                                              style: TextStyle(fontSize: 14),
-                                              obscureText: true,
-                                              enableSuggestions: false,
-                                              autocorrect: false,
                                             ),
                                           ),
                                         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local/start_select.dart';
-import 'package:local/mpage.dart';
+import 'package:local/mainpage.dart';
 
 class Login extends StatelessWidget{
   const Login({super.key});
@@ -52,6 +52,8 @@ class HomeApp extends StatefulWidget {
 }
 
 class _HomeAppState extends State<HomeApp> {
+  var formKey = GlobalKey<FormState>();
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _currentPasswordController = TextEditingController();
   bool _passwordMismatch = false;
@@ -103,56 +105,59 @@ class _HomeAppState extends State<HomeApp> {
           height: 60,
         ),
         Flexible(
-          child: Column(
-            children: [
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: 50,
-                  child: TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: '이메일 주소',
-                      labelStyle: TextStyle(
-                        color: Color(0xffBDBDBD),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 50,
+                    child: TextFormField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        labelText: '이메일 주소',
+                        labelStyle: TextStyle(
+                          color: Color(0xffBDBDBD),
+                        ),
+                        border: OutlineInputBorder(),
+                        errorText: _invalidEmailFormat ? '잘못된 이메일 형식입니다.' : null,
                       ),
-                      border: OutlineInputBorder(),
-                      errorText: _invalidEmailFormat ? '잘못된 이메일 형식입니다.' : null,
+                      style: TextStyle(fontSize: 14),
+                      onChanged: (value) {
+                        setState(() {
+                          _invalidEmailFormat = false;
+                          _emailNotStored = false;
+                        });
+                      },
+                      onEditingComplete: _validateEmail,
                     ),
-                    style: TextStyle(fontSize: 14),
-                    onChanged: (value) {
-                      setState(() {
-                        _invalidEmailFormat = false;
-                        _emailNotStored = false;
-                      });
-                    },
-                    onEditingComplete: _validateEmail,
                   ),
                 ),
-              ),
-              Container(height: 20),
-              Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: 50,
-                  child: TextField(
-                    controller: _currentPasswordController,
-                    decoration: InputDecoration(
-                      labelText: '비밀번호',
-                      labelStyle: TextStyle(
-                        color: Color(0xffBDBDBD),
+                Container(height: 20),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 50,
+                    child: TextFormField(
+                      controller: _currentPasswordController,
+                      decoration: InputDecoration(
+                        labelText: '비밀번호',
+                        labelStyle: TextStyle(
+                          color: Color(0xffBDBDBD),
+                        ),
+                        border: OutlineInputBorder(),
+                        errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
                       ),
-                      border: OutlineInputBorder(),
-                      errorText: _passwordMismatch ? '비밀번호가 맞지 않습니다.' : null,
+                      style: TextStyle(fontSize: 14),
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
                     ),
-                    style: TextStyle(fontSize: 14),
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Container(height: 35),

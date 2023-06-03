@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local/review_2.dart';
-import 'package:local/mpage.dart';
+import 'package:local/mainpage.dart';
 
 class ReviewOne extends StatelessWidget {
   const ReviewOne({Key? key}) : super(key: key);
@@ -17,10 +17,10 @@ class ReviewOne extends StatelessWidget {
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffE3DCFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:30),
+            padding: EdgeInsets.only(right:12.0),
             child: Row(
               children: const [
-                Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30,              ),
+                Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30),
                 Text('  다시 보기',
                   style: TextStyle(
                       fontSize: 24,
@@ -31,6 +31,26 @@ class ReviewOne extends StatelessWidget {
             ),
           ),
         ),
+        //appBar: AppBar(
+        //  toolbarHeight: 60,
+        //  elevation: 4,
+        //  shadowColor: Color(0xffE6E6E6),
+        //  backgroundColor: Color(0xffE3DCFF),
+        //  title: Padding(
+        //    padding: EdgeInsets.only(right:12.0,top:20),
+        //    child: Row(
+        //      children: const [
+        //        Icon(Icons.settings_backup_restore, color: Color(0xff404040), size: 30,              ),
+        //        Text('  다시 보기',
+        //          style: TextStyle(
+        //              fontSize: 24,
+        //              color: Color(0xff404040),
+        //              fontWeight: FontWeight.bold
+        //          ),)
+        //      ],
+        //    ),
+        //  ),
+        //),
         body: HomeApp(),
       ),
     );

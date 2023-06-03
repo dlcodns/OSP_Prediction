@@ -3,6 +3,7 @@ import 'package:local/setting.dart';
 
 class AlwaysDisabledFocusNode extends FocusNode {
   @override
+
   bool get hasFocus => false;
 }
 
@@ -10,6 +11,7 @@ class Modify extends StatelessWidget {
   const Modify({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
 
     return MaterialApp(
       title: 'modify',
@@ -21,7 +23,7 @@ class Modify extends StatelessWidget {
           shadowColor: Color(0xffE6E6E6),
           backgroundColor: Color(0xffFFFFFF),
           title: Padding(
-            padding: EdgeInsets.only(right:12.0,top:30),
+            padding: EdgeInsets.only(right:12.0),
             child: Row(
               children:  [
                 IconButton(
@@ -50,6 +52,7 @@ class Modify extends StatelessWidget {
 }
 
 class HomeApp extends StatelessWidget{
+  var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context){
     var m = MediaQuery.of(context);
@@ -122,25 +125,28 @@ class HomeApp extends StatelessWidget{
             height: MediaQuery.of(context).size.height*0.01
         ),
         Center(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width*0.9,
-            height: MediaQuery.of(context).size.height*0.1,
-            child: TextField(
-              enableInteractiveSelection: false,
-              focusNode: AlwaysDisabledFocusNode(),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Color(0xffEDEDED),
-                labelText: '이름 db 불러오기',
-                labelStyle: TextStyle(
-                    color: Colors.red
+          child: Form(
+            key: formKey,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width*0.9,
+              height: MediaQuery.of(context).size.height*0.1,
+              child: TextFormField(
+                enableInteractiveSelection: false,
+                focusNode: AlwaysDisabledFocusNode(),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Color(0xffEDEDED),
+                  labelText: '이름 db 불러오기',
+                  labelStyle: TextStyle(
+                      color: Colors.red
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffEDEDED)),
+                  ),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xffEDEDED)),
-                ),
+                style: TextStyle(
+                    fontSize: 14),
               ),
-              style: TextStyle(
-                  fontSize: 14),
             ),
           ),
         ),
