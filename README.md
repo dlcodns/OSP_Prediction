@@ -25,9 +25,8 @@
 <img width="866" alt="image" src="https://github.com/dlcodns/OSP_Prediction/assets/107831875/a5853e4d-c1d2-479b-8f44-07e9603389e6">
 
 ## 설치 방법
-``` bash
-
-``` 
+[api.ipynb](https://github.com/dlcodns/OSP_Prediction/blob/main/api/api.ipynb)를 참고해주시기 바랍니다.<br/><br/>
+자세한건 이메일 문의 (16alexandros57@gmail.com)<br/>
 
 ## 의존성 및 설치 환경
 api는 코랩 환경에서 구현하였다.
