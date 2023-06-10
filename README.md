@@ -19,7 +19,7 @@
 
 ## 샘플
 
-[동영상 들어갈 곳]
+[동영상 들어갈 곳]<br/>모델 처리 시간이 1분 정도 돼서 GIF으로 올릴 수 없게되었습니다. 발표자료를 참고해주시기 바랍니다.<br/>
 
 ## 아키텍쳐
 <img width="866" alt="image" src="https://github.com/dlcodns/OSP_Prediction/assets/107831875/a5853e4d-c1d2-479b-8f44-07e9603389e6">
