@@ -6,7 +6,7 @@
 | :-----------------------------------: | :---------------------------------------: | :-------------------------------------: |
 | [dlcodns](https://github.com/dlcodns) | [troymerai](https://github.com/troymerai) | [KIMSSI22](https://github.com/KIMSSI22) |
 | 충북대학교 컴퓨터공학과                 | 충북대학교 컴퓨터공학과                     | 충북대학교 컴퓨터공학과                   |
-| - | - | minseo03226@gmail.com |
+| redmond0412@gmail.com | 16alexandros57@gmail.com | minseo03226@gmail.com |
 
 
 ## 서비스 설명
@@ -49,7 +49,7 @@ api는 코랩 환경에서 구현하였다.
 - 복제본에는 원본 저작권의 표시와 보증에 책임이 없음을 명시한다.
 - 모든 파생물 또한 라이센스로 GPL 2.0을 따른다.
 
-자세한 내용은 LICENSE 문서를 참고하고, 문의 사항은 본 프로젝트의 책임자(-)에게 연락할 수 있다.
+자세한 내용은 LICENSE 문서를 참고하고, 문의 사항은 본 프로젝트의 책임자(redmond0412@gmail.com)에게 연락할 수 있다.
 
 
 
